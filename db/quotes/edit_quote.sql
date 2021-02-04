@@ -1,3 +1,3 @@
 update quotes
-set quote = ${revised_quote}
+set quote = ${quote}
 where quote_id = ${id};

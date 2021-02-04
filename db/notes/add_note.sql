@@ -1,4 +1,4 @@
 insert into notes
-(note)
+(note, user_id)
 values
-(${note});
+(${note}, ${id});

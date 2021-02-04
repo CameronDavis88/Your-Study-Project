@@ -24,30 +24,39 @@ massive({
     console.log('db connected')
 })
 
-// //Auth/User Endpoints
-// app.post('/api/register', authCtrl.register)
-// app.post('/api/login', authCtrl.login)
-// app.get('/api/logout', authCtrl.logout)
-
-// app.put('/api/user/:id', authCtrl.updateUsername)
+//Auth Endpoints
+app.post('/api/register', authCtrl.register)
+app.post('/api/login', authCtrl.login)
+app.get('/api/logout', authCtrl.logout)
 
 
-// //Journal Endpoints
-// app.post('/api/entry', mainCtrl.createEntry)
-// app.get('/api/journal/:id', mainCtrl.getUserJournal)
-// app.delete('/api/entry/:id', mainCtrl.deleteEntry)
+//User Endpoints
+app.put('/api/user/:id', mainCtrl.updateUsername)
+app.put('/api/user/:id', mainCtrl.updatePassword)
+app.put('/api/user/:id', mainCtrl.updateProfilePic)
 
 
-// // Quotes Endpoints
-// app.post('/api/quote', mainCtrl.createQuote)
-// app.get('/api/quotes/:id', mainCtrl.getUserQuotes)
-// app.delete('/api/quote/:id', mainCtrl.deleteQuote)
+
+//Journal Endpoints
+app.post('/api/entry/:id', mainCtrl.createEntry)
+app.get('/api/journal/:id', mainCtrl.getJournal)
+app.delete('/api/entry/:id', mainCtrl.deleteEntry)
+app.put('/api/entry/:id', mainCtrl.updateEntry)
 
 
-// //Notes Endpoints
-// app.post('/api/note', mainCtrl.createNote)
-// app.get('/api/notes/:id', mainCtrl.getUserNotes)
-// app.delete('/api/note/:id', mainCtrl.deleteNote)
+// Quotes Endpoints
+app.post('/api/quote/:id', mainCtrl.createQuote)
+app.get('/api/quotes/:id', mainCtrl.getQuotes)
+app.delete('/api/quote/:id', mainCtrl.deleteQuote)
+app.put('/api/quote/:id', mainCtrl.updateQuote)
+
+
+
+//Notes Endpoints
+app.post('/api/note/:id', mainCtrl.createNote)
+app.get('/api/notes/:id', mainCtrl.getNotes)
+app.delete('/api/note/:id', mainCtrl.deleteNote)
+app.put('/api/note/:id', mainCtrl.updateNote)
 
 
 app.listen(SERVER_PORT,() => console.log(`Listening on port ${SERVER_PORT}`))

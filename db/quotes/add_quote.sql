@@ -1,4 +1,4 @@
 insert into quotes
-(quote)
+(quote, user_id)
 values
-(${quote});
+(${quote}, ${id});

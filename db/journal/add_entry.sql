@@ -1,4 +1,7 @@
 insert into journal
-(entry)
+(entry, user_id)
 values
-(${entry});
+(${text}, ${id});
+
+select * from journal 
+where user_id = ${id};

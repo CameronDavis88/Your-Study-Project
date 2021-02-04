@@ -1,3 +1,3 @@
 update notes
-set note = ${revised_note}
+set note = ${note}
 where note_id = ${id};
