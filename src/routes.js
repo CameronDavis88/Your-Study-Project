@@ -5,6 +5,7 @@ import Login from './components/Login-Register/Login'
 import Journal from './components/Journal/Journal'
 import Notes from './components/Notes/Notes'
 import Profile from './components/Profile/Profile'
+import Quotes from './components/Quotes/Quotes'
 
 
 
@@ -15,6 +16,7 @@ export default (
         <Route path='/profile' component={Profile}/>
         <Route path='/journal' component={Journal}/>
         <Route path='/notes' component={Notes}/>
+        <Route path='/quotes' component={Quotes}/>
         <Route path='about' component={About}/>
     </Switch>
 )

@@ -3,37 +3,46 @@ module.exports = {
 
     updateUsername: (req, res) => {
         const { id } = req.params
-        const { username } = req.params
+        const { username } = req.body
         const db = req.app.get('db')
         db.user.edit_username({ id, username })
-            .then(user => res.status(200).send(user))
+            .then(([user]) => res.status(200).send(user))
             .catch(err => res.status(500).send(err))
     },
-    updatePassword: (req, res) => {
-        const { id } = req.params
-        const { password } = req.params
-        const db = req.app.get('db')
-        db.user.edit_username({ id, password })
-            .then(user => res.status(200).send(user))
-            .catch(err => res.status(500).send(err))
-    },
+    // updatePassword: (req, res) => {
+    //     const { id } = req.params
+    //     const { password } = req.body
+    //     const db = req.app.get('db')
+    //     db.user.edit_({ id, password })
+    //         .then(([user ])=> res.status(200).send(user))
+    //         .catch(err => res.status(500).send(err))
+    // },
 
     updateProfilePic: (req, res) => {
         const { id } = req.params
-        const { profilePic } = req.params
+        const { profilePic } = req.body
         const db = req.app.get('db')
-        db.user.edit_username({ id, profilePic })
-            .then(user => res.status(200).send(user))
+        db.user.edit_profile_pic({ id, profilePic })
+            .then(([user]) => res.status(200).send(user))
             .catch(err => res.status(500).send(err))
     },
 
+    updateEmail: (req, res) => {
+        const { id } = req.params
+        const { email } = req.body
+        const db = req.app.get('db')
+        db.user.edit_user_email({ id, email })
+            .then(([user]) => res.status(200).send(user))
+            .catch(err => res.status(500).send(err))
+    },
+    
     // Journal Controllers
 
     createEntry: async (req, res) => {
         const { id } = req.params
-        const { text } = req.body
+        const { entry } = req.body
         const db = req.app.get('db')
-        const journal = await db.journal.add_entry({ id, text })
+        const journal = await db.journal.add_entry({ id, entry })
         res.status(200).send(journal)
     },
 
@@ -44,91 +53,82 @@ module.exports = {
         res.status(200).send(journal)
     },
 
-    deleteEntry: (req, res) => {
-        const { id } = req.params
+    deleteEntry: async (req,res)=> {
+        const { id } = req.params 
         const db = req.app.get('db')
-        db.journal.delete_entry({ id })
-            .then(() => res.status(200))
-            .catch(err => res.status(500).send(err))
+        const journal = await db.journal.delete_entry({ id })
+        res.status(200).send(journal)
     },
 
-    updateEntry: (req, res) => {
+    updateEntry: async (req, res) => {
         const { id } = req.params
         const { entry } = req.body
         const db = req.app.get('db')
-        db.journal.edit_entry({ id, entry })
-            .then(entry => res.status(200).send(entry))
-            .catch(err => res.status(500).send(err))
+        const journal = await db.journal.edit_entry({ id, entry })
+        res.status(200).send(journal)
     },
 
-    // Notes Controllers               -----unedited
+    // Notes Controllers 
 
-    createNote: (req, res) => {
-        const { id, note } = req.params
+    createNote: async (req, res) => {
+        const { id } = req.params
+        const { note } = req.body
         const db = req.app.get('db')
-        db.notes.add_note({ id, note })
-            .then(() => res.status(200))
-            .catch(err => res.status(500).send(err))
+        const notes = await db.notes.add_note({ id, note })
+        res.status(200).send(notes)
     },
 
-    getNotes: (req, res) => {
+    getNotes: async (req, res) => {
         const { id } = req.params
         const db = req.app.get('db')
-        db.notes.get_notes({ id })
-            .then(notes => res.status(200).send(notes))
-            .catch(err => res.status(500).send(err))
+        const notes = await db.notes.get_notes({ id })
+        res.status(200).send(notes)
     },
 
-    deleteNote: (req, res) => {
+    deleteNote: async (req,res)=> {
+        const { id } = req.params 
+        const db = req.app.get('db')
+        const notes = await db.notes.delete_note({ id })
+        res.status(200).send(notes)
+    },
+
+    updateNote: async (req, res) => {
+        const { id } = req.params
+        const { note } = req.body
+        const db = req.app.get('db')
+        const notes = await db.notes.edit_note({ id, note })
+        res.status(200).send(notes)
+    },
+
+    //  Quotes Controllers- 
+
+    createQuote: async (req, res) => {
+        const { id } = req.params
+        const { quote } = req.body
+        const db = req.app.get('db')
+        const quotes = await db.quotes.add_quote({ id, quote })
+        res.status(200).send(quotes)
+    },
+
+    getQuotes: async (req, res) => {
         const { id } = req.params
         const db = req.app.get('db')
-        db.notes.delete_note({ id })
-            .then(() => res.status(200))
-            .catch(err => res.status(500).send(err))
+        const quotes = await db.quotes.get_quotes({ id })
+        res.status(200).send(quotes)
     },
 
-    updateNote: (req, res) => {
+    deleteQuote: async (req,res)=> {
+        const { id } = req.params 
+        const db = req.app.get('db')
+        const quotes = await db.quotes.delete_quote({ id })
+        res.status(200).send(quotes)
+    },
+
+    updateQuote: async (req, res) => {
         const { id } = req.params
-        const { entry } = req.params
+        const { quote } = req.body
         const db = req.app.get('db')
-        db.notes.edit_note({ id, entry })
-            .then(note => res.status(200).send(note))
-            .catch(err => res.status(500).send(err))
-    },
-
-    //  Quotes Controllers-                     -------unedited
-
-    createQuote: (req, res) => {
-        const { id, quote } = req.params
-        const db = req.app.get('db')
-        db.quotes.add_entry({ id, quote })
-            .then(() => res.status(200))
-            .catch(err => res.status(500).send(err))
-    },
-
-    getQuotes: (req, res) => {
-        const { id } = req.params
-        const db = req.app.get('db')
-        db.quotes.get_journal({ id })
-            .then(quotes => res.status(200).send(quotes))
-            .catch(err => res.status(500).send(err))
-    },
-
-    deleteQuote: (req, res) => {
-        const { id } = req.params
-        const db = req.app.get('db')
-        db.quotes.delete_entry({ id })
-            .then(() => res.status(200))
-            .catch(err => res.status(500).send(err))
-    },
-
-    updateQuote: (req, res) => {
-        const { id } = req.params
-        const { quote } = req.params
-        const db = req.app.get('db')
-        db.quotes.edit_quote({ id, quote })
-            .then(quote => res.status(200).send(quote))
-            .catch(err => res.status(500).send(err))
+        const quotes = await db.quotes.edit_quote({ id, quote })
+        res.status(200).send(quotes)
     }
-
 }

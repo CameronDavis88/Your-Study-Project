@@ -1,15 +1,58 @@
-// import Note from './Note'
+import axios from 'axios'
+import Note from './Note'
+import { connect } from 'react-redux'
+import { useState, useEffect } from 'react'
+import { getUser } from '../../ducks/reducer'
 import './Notes.css'
 
 const Notes = props => {
-    return(
-           // map over the posts rendering the individual post component 
-           <div>
-        <header>Notes</header>
-        {/* <Note/> */}
+    const [notes, setNotes] = useState([])
+    const [note, setNote] = useState('')
+
+const getNotes = () => {
+    const id = props.user.user_id
+    axios.get(`/api/notes/${id}`)
+        .then(res => {
+            setNotes(res.data)
+        })
+        .catch(err => console.log(err))
+}
+
+    const createNote = () => {
+        const id = props.user.user_id
+        axios.post(`/api/note/${id}`, { note })
+            .then(() => {
+                setNote('')
+                getNotes()
+            })
+            .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        getNotes()
+    }, [])
+
+    const mappedNotes = notes.map( note => {
+        return <Note
+            key={note.note_id}
+            note={note}
+            getNotes={getNotes}
+        />
+    })
+
+    return (
+
+        <div className='notes-page'>
+            <header>Your Notes</header>
+            <div className='note-input-box'>
+                <input className='note-input-text' value={note}
+                    onChange={e => setNote(e.target.value)} />
+                <button onClick={createNote}>Add Note</button>
+            </div>
+            {mappedNotes}
         </div>
     )
 }
- export default Notes
+const mapStateToProps = reduxState => reduxState;
 
- //  not sure if it should be the journal or the entry component (or notes-note, or quotes-quote respectively): but there will be either a rendering of a mapping of the individual one or the rendering of the individual comp which maps over the individual entries--- the individual entries are straight from what is returned by the sql query of journal which sends id etc AND the "entry" which is an individual entry. so it would render db.journal.entry
+export default connect(mapStateToProps, { getUser })(Notes)

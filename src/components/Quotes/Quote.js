@@ -1,8 +1,41 @@
+import axios from 'axios'
+import { useState, useEffect } from 'react'
+
 const Quote = props => {
-    return(
-        <header>Quote</header>
+
+    const [quote, setQuote] = useState(props.quote.quote)
+
+    const deleteQuote = () => {
+        const id = props.quote.quote_id
+        axios.delete(`/api/quote/${id}`)
+            .then(() => {
+                props.getQuotes()
+            })
+            .catch(err => console.log(err))
+    }
+
+    const updateQuote = () => {
+        const id = props.quote.quote_id
+        axios.put(`/api/quote/${id}`, { quote })
+            .then(() => {
+                alert('Quote Updated')
+                props.getQuotes()
+            })
+            .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+    }, [])
+
+    return (
+        <div className='quote-container'>
+            <input value={quote} className='editing-quote-input' 
+            onChange={e => setQuote(e.target.value)} />
+            <button onClick={updateQuote}>Update Quote</button>
+            <button onClick={deleteQuote}>Delete Quote</button>
+        </div>
     )
 }
- export default Quote
+export default Quote
 
- //  not sure if it should be the journal or the entry component (or notes-note, or quotes-quote respectively): but there will be either a rendering of a mapping of the individual one or the rendering of the individual comp which maps over the individual entries--- the individual entries are straight from what is returned by the sql query of journal which sends id etc AND the "entry" which is an individual entry. so it would render db.journal.entry
+ 

@@ -1,2 +1,3 @@
 delete from quotes
-where quote_id = ${id};
+where quote_id = ${id}
+returning quotes;

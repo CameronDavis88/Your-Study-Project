@@ -1,5 +1,6 @@
 update users
-set profile_pic = ${profilePic}
+set profile_pic = ${profilePic} 
+-- not null
 where user_id = ${id};
 
 
