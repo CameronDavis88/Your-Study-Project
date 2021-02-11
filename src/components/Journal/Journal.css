@@ -14,7 +14,7 @@
 
 .entry-input-text{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     background-image: url( 'https://i.pinimg.com/originals/be/22/94/be2294d961358cf8ae34fa78353534af.jpg' ) ;
     background-size: no-repeat center center fixed;
     font-size: 20px;
@@ -22,7 +22,27 @@
     word-wrap: normal;
     height: fit-content;
     width: 90vw;
+    overflow: visible;
+    /* height: 40vh; */
+    justify-content: flex-start;
+   
+    
+/*     
+   min-width: 75vw;
+   max-width: fit-content;
+   display: inline-flex;
+   flex-wrap: wrap; */
 
+}
+
+.entry-p-text{
+    width: 90vw;
+    height: 20vh;
+}
+
+input { 
+    text-align: top; 
+    word-wrap: normal;
 }
 
 
@@ -67,3 +87,5 @@
      margin-top: 10px;
      margin-bottom: 10px;
  }
+
+ 

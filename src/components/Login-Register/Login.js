@@ -3,6 +3,8 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import { getUser } from '..//../ducks/reducer'
 import './Login.css'
+// const nodemailer =require('nodemailer')
+import nodemailer from 'nodemailer'
 // import '../../styles/Login.css'
 
 class Login extends Component {
@@ -16,6 +18,16 @@ class Login extends Component {
             registerView: false
         }
     }
+
+    // sendEmail = () => {
+    //     nodemailer.sendMail({
+    //         from: '"Your Study" <cammien88@gmail.com>', // sender address
+    //         to: `${this.email}`, // list of receivers
+    //         subject: "Welcome", // Subject line
+    //         text: `Hello ${this.username}, welcome to Your Study!`, // plain text body
+    //         html: "<b>Hello world?</b>", // html body
+    //       });
+    // }
 
     handleInput = (event) => {
         this.setState({ [event.target.name]: event.target.value })
@@ -33,6 +45,7 @@ class Login extends Component {
                 .then(res => {
                     this.props.getUser(res.data)
                     this.props.history.push('/profile')
+                    // this.sendEmail()
                 })
                 .catch(err => console.log(err))
         } else {
@@ -48,7 +61,8 @@ class Login extends Component {
                 this.props.getUser(res.data)
                 this.props.history.push('/profile')
             })
-            .catch(err => console.log(err))
+            .catch(err =>alert('Username or Password not found, please try again')
+            )
     }
 
     render() {
@@ -59,7 +73,7 @@ class Login extends Component {
                     {this.state.registerView
                         ? (
                             <>
-                                <h3 >Register Here</h3>
+                                <h3 className='login-here-text' >Register Here</h3>
                                 <input className='input-class'
                                     value={this.state.username}
                                     name='username'

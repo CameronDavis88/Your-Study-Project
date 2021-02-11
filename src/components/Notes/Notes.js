@@ -6,18 +6,21 @@ import { getUser } from '../../ducks/reducer'
 import './Notes.css'
 // import '../../styles/Notes.css'
 
+
 const Notes = props => {
     const [notes, setNotes] = useState([])
     const [note, setNote] = useState('')
+    const [addView, setAddView] = useState(false)
 
-const getNotes = () => {
-    const id = props.user.user_id
-    axios.get(`/api/notes/${id}`)
-        .then(res => {
-            setNotes(res.data)
-        })
-        .catch(err => console.log(err))
-}
+
+    const getNotes = () => {
+        const id = props.user.user_id
+        axios.get(`/api/notes/${id}`)
+            .then(res => {
+                setNotes(res.data)
+            })
+            .catch(err => console.log(err))
+    }
 
     const createNote = () => {
         const id = props.user.user_id
@@ -25,6 +28,7 @@ const getNotes = () => {
             .then(() => {
                 setNote('')
                 getNotes()
+                addViewFalse()
             })
             .catch(err => console.log(err))
     }
@@ -33,7 +37,17 @@ const getNotes = () => {
         getNotes()
     }, [])
 
-    const mappedNotes = notes.map( note => {
+    const addViewTrue = () => {
+        setAddView(true)
+    }
+
+    const addViewFalse = () => {
+        setAddView(false)
+    }
+
+
+
+    const mappedNotes = notes.map(note => {
         return <Note
             key={note.note_id}
             note={note}
@@ -45,16 +59,96 @@ const getNotes = () => {
     return (
 
         <div className='notes-page'>
-            <header>Your Notes</header>
-            <div className='note-input-box'>
-                <input className='note-input-text' value={note}
-                    onChange={e => setNote(e.target.value)} />
-                <button onClick={createNote}>Add Note</button>
-            </div>
-            {mappedNotes}
+            <section className='content'>
+                {addView
+                    ? (
+                        <>
+                            <div className='note-input-box'>
+                                <h2 className='notes-title'>New Note</h2>
+                                <button onClick={addViewFalse}>Return to Notes</button>
+                                <input type='text' className='note-input-text' value={note}
+                                    onChange={e => setNote(e.target.value)} />
+                                <button onClick={createNote} >Add Note</button>
+                            </div>
+                        </>
+                    )
+                    :
+                    <main>
+                        <h2 className='notes-title'>Your Notes</h2>
+
+                        <button className='add-view' onClick={addViewTrue}>Add New Note</button>
+                        {mappedNotes}
+                    </main>
+                }
+            </section>
         </div>
     )
 }
+
 const mapStateToProps = reduxState => reduxState;
 
-export default connect(mapStateToProps, { getUser })(Notes)
+export default connect(mapStateToProps, { getUser })(Notes);
+
+
+
+
+
+
+
+
+
+
+
+
+// const Notes = props => {
+//     const [notes, setNotes] = useState([])
+//     const [note, setNote] = useState('')
+
+// const getNotes = () => {
+//     const id = props.user.user_id
+//     axios.get(`/api/notes/${id}`)
+//         .then(res => {
+//             setNotes(res.data)
+//         })
+//         .catch(err => console.log(err))
+// }
+
+//     const createNote = () => {
+//         const id = props.user.user_id
+//         axios.post(`/api/note/${id}`, { note })
+//             .then(() => {
+//                 setNote('')
+//                 getNotes()
+//             })
+//             .catch(err => console.log(err))
+//     }
+
+//     useEffect(() => {
+//         getNotes()
+//     }, [])
+
+//     const mappedNotes = notes.map( note => {
+//         return <Note
+//             key={note.note_id}
+//             note={note}
+//             getNotes={getNotes}
+//             className='note'
+//         />
+//     })
+
+//     return (
+
+//         <div className='notes-page'>
+//             <header>Your Notes</header>
+//             <div className='note-input-box'>
+//                 <input className='note-input-text' value={note}
+//                     onChange={e => setNote(e.target.value)} />
+//                 <button onClick={createNote}>Add Note</button>
+//             </div>
+//             {mappedNotes}
+//         </div>
+//     )
+// }
+// const mapStateToProps = reduxState => reduxState;
+
+// export default connect(mapStateToProps, { getUser })(Notes)

@@ -7,6 +7,7 @@ import './Journal.css'
 // import '../../styles/Journal.css'
 
 
+
 const Journal = props => {
     const [journal, setJournal] = useState([])
     const [entry, setEntry] = useState('')
@@ -28,7 +29,8 @@ const Journal = props => {
             .then(() => {
                 setEntry('')
                 getJournal()
-                alert('Added Newest Entry')
+                // alert('Added Newest Entry')
+                addViewFalse()
             })
             .catch(err => console.log(err))
     }
@@ -66,7 +68,7 @@ const Journal = props => {
                             <div className='entry-input-box'>
                                 <h2 className='journal-title'>New Entry</h2>
                                 <button onClick={addViewFalse}>Return to Journal</button>
-                                <input className='entry-input-text' value={entry}
+                                <input type='text' className='entry-input-text' value={entry}
                                     onChange={e => setEntry(e.target.value)} />
                                 <button onClick={createEntry} >Add Entry</button>
                             </div>
