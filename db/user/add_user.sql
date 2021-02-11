@@ -1,6 +1,6 @@
 insert into users
-(username, password, email, profile_pic)
+(username, password, email)
 values
-(${username}, ${hash}, ${email}, ${profilePic})
+(${username}, ${hash}, ${email})
 
-returning user_id, username, email, profile_pic;
+returning user_id, username, email;

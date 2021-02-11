@@ -1,0 +1,127 @@
+.home-page {
+    background:
+    url('https://www.pixelstalk.net/wp-content/uploads/2016/08/Library-Wallpaper-Free-Download.jpg')
+     no-repeat center center fixed;
+    box-sizing: border-box;
+    background-size: cover; 
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+    top: 10vh;
+}
+
+.profile-display {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+    
+}
+
+h3{
+    align-items: center;
+}
+
+.profile-text {
+    z-index: 3;
+
+}
+
+.link-box{
+display: flex;
+align-items: center;
+flex-direction: row;
+justify-content:space-between;
+width: 100vw;
+margin-top: 25px;
+
+}
+
+/* .links {
+    text-decoration-line: none;
+    justify-content:space-between;
+    margin-top: 0px;
+    margin-bottom: 50px;
+} */
+
+.notes{
+    border: solid white thin;
+    margin-left: 350px;
+    color:white;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    font-size: 25px;
+    box-shadow:  1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.quotes{
+    margin-right: 350px;
+    color:white;
+    border: solid white thin;
+    
+    font-size: 25px;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    box-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.journal{
+    
+    border: solid white thin;
+    font-size: 25px;
+    color:white;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    box-shadow:  1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.update{
+    position: relative;
+    font-size: large;
+    bottom: 110px;
+    cursor: pointer;
+    color:white;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    font-style: italic;
+    margin-left: 135px;
+}
+
+.username{
+    position: relative;
+    bottom: 115px;
+    font-size: 45px;
+    color:white;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.update-title{
+    position: relative;
+    bottom: 40px;
+    font-size: 45px;
+    color:white;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.inputs{
+        box-sizing: border-box;
+        justify-content: center;
+        align-items: center; 
+        background-color:rgba(0, 0, 0, 0);
+        border: white solid thin;
+        border-radius: 1px;
+        text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+        font-size: 20px;
+        color: white;
+        box-shadow:  1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.updating-box{
+    margin-bottom: 60px;
+}
+
+.finished{
+    margin-bottom: 70px;
+}
+
+button{
+    height: 28px;
+}

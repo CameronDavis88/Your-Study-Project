@@ -3,8 +3,9 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import { getUser } from '..//../ducks/reducer'
 import './Login.css'
+// import '../../styles/Login.css'
 
- class Login extends Component {
+class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -12,7 +13,6 @@ import './Login.css'
             email: '',
             password: '',
             verPassword: '',
-            profilePic: '',
             registerView: false
         }
     }
@@ -26,10 +26,10 @@ import './Login.css'
     }
 
     handleRegister = () => {
-        const { username, email, password, verPassword, profilePic } = this.state
+        const { username, email, password, verPassword } = this.state
 
         if (password && password === verPassword) {
-            axios.post('/api/register', { username, email, password, profilePic })
+            axios.post('/api/register', { username, email, password })
                 .then(res => {
                     this.props.getUser(res.data)
                     this.props.history.push('/profile')
@@ -53,45 +53,48 @@ import './Login.css'
 
     render() {
         return (
-            <div className='login-container'>
+            <div className='login-page'>
                 <section className='authentication-info'>
+                    <h1 className='enter'>Enter Your Study</h1>
                     {this.state.registerView
                         ? (
                             <>
-                                <h3>Register Here</h3>
-                                <input
+                                <h3 >Register Here</h3>
+                                <input className='input-class'
                                     value={this.state.username}
                                     name='username'
                                     placeholder='Username'
                                     onChange={e => this.handleInput(e)} />
                             </>
                         )
-                        : <h3>Login Here</h3>}
-                    <input
+                        :
+                        <h3 className='login-here-text'>Login Here</h3>}
+                    <input className='input-class'
                         value={this.state.email}
                         name='email'
                         placeholder='Email'
                         onChange={e => this.handleInput(e)} />
-                    <input
+                    <input className='input-class'
                         value={this.state.password}
                         name='password'
                         type='password'
                         placeholder='Password'
                         onChange={e => this.handleInput(e)} />
                     {this.state.registerView
-                        ? (
+                        ?
+                        (
                             <>
-                                <input
+                                <input className='input-class'
                                     value={this.state.verPassword}
                                     name='verPassword'
                                     type='password'
                                     placeholder='Verify Password'
                                     onChange={e => this.handleInput(e)} />
-                                <input
+                                {/* <input className='input-class'
                                     value={this.state.profilePicture}
                                     name='profilePicture'
                                     placeholder='Profile Picture URL'
-                                    onChange={e => this.handleInput(e)} />
+                                    onChange={e => this.handleInput(e)} /> */}
                                 <button onClick={this.handleRegister}>Register</button>
                                 <p>Have an account? <span onClick={this.handleToggle}>Login here</span></p>
                             </>

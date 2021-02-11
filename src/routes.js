@@ -17,6 +17,6 @@ export default (
         <Route path='/journal' component={Journal}/>
         <Route path='/notes' component={Notes}/>
         <Route path='/quotes' component={Quotes}/>
-        <Route path='about' component={About}/>
+        <Route path='/about' component={About}/>
     </Switch>
 )

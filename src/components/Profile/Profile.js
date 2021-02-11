@@ -1,29 +1,26 @@
 import { Component } from 'react'
 import axios from 'axios'
+import { withRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getUser } from '../../ducks/reducer'
 import './Profile.css'
-
-
-
-
+// import '../../styles/Profile.css'
 
 class Profile extends Component {
     constructor(props) {
         super(props)
 
-        const { username, email, profilePic } = this.props.user
+        const { username, email } = this.props.user
         this.state = {
             username: username,
             email: email,
-            profilePic: profilePic,
+            // profilePic: 'http://sunfieldfarm.org/wp-content/uploads/2014/02/profile-placeholder.png',
             // password: '',
             // verPassword: '',
             editingView: false
 
         }
     }
-
 
     componentDidMount() {
         getUser()
@@ -62,30 +59,30 @@ class Profile extends Component {
             .catch(err => console.log(err));
     }
 
-    editProfilePic = () => {
-        const id = this.props.user.user_id
-        const profilePic = this.state.profilePic
-        axios.put(`/api/user/${id}`, { profilePic })
-            .then(res => {
-               
-                this.setState({ profilePic: res.data.profilePic })
-                alert('Profile Picture Updated')
-            })
-            .catch(err => console.log(err), alert('Profile data unreadable'));
-    }
+    // editProfilePic = () => {
+    //     const id = this.props.user.user_id
+    //     const profilePic = this.state.profilePic
+    //     axios.put(`/api/user/${id}`, { profilePic })
+    //         .then(res => {
+
+    //             this.setState({ profilePic: res.data.profilePic })
+    //             alert('Profile Picture Updated')
+    //         })
+    //         .catch(err => console.log(err), alert('Profile data unreadable'));
+    // }
+
 
     // editPassword = () => {
     //     const id = this.props.user.user_id
     //     const password = this.state.password
     //     axios.put(`/api/user/${id}`, { password })
     //         .then(res => {
-                
+
     //             this.setState({ password: res.data.password })
     //             alert('Password Updated')
     //         })
     //         .catch(err => console.log(err));
     // }
-
 
 
     // this will be the big function that fires the other fuctions I think or will just be altered into the one that verifies the password before editing it, then maybe make a sepapate button that takes you back to nonediting mode.
@@ -108,32 +105,37 @@ class Profile extends Component {
 
     render() {
         return (
-            <div>
+            <div className='home-page'>
                 <section className='authentication-info'>
                     {this.state.editingView
                         ? (
                             <>
-                                <h3>Update Your Info</h3>
-                                <input
-                                    value={this.state.username}
-                                    name='username'
-                                    placeholder='Username'
-                                    onChange={e => this.handleInput(e)} />
-                                <button onClick={this.editUsername}>Update Username</button>
-
-                                <input
-                                    value={this.state.email}
-                                    name='email'
-                                    placeholder='Email'
-                                    onChange={e => this.handleInput(e)} />
-                                <button onClick={this.editEmail}>Update Email</button>
-
-                                <input
+                            <section className='updating-box'>
+                                <h3 className='update-title'>Update Your Info</h3>
+                                <div className='update-username-box'>
+                                    <input
+                                    className='inputs'
+                                        value={this.state.username}
+                                        name='username'
+                                        placeholder='Username'
+                                        onChange={e => this.handleInput(e)} />
+                                    <button onClick={this.editUsername}>Update</button>
+                                </div>
+                                <div className='update-username-box'>
+                                    <input className='inputs'
+                                        value={this.state.email}
+                                        name='email'
+                                        placeholder='Email'
+                                        onChange={e => this.handleInput(e)} />
+                                    <button onClick={this.editEmail}>Update</button>
+                                </div>
+                                </section>
+                                {/* <input
                                     value={this.state.profilePicture}
                                     name='profilePicture'
                                     placeholder='Profile Picture URL'
                                     onChange={e => this.handleInput(e)} />
-                                <button onClick={this.editProfilePic}>Update Profile Picture</button>
+                                <button onClick={this.editProfilePic}>Update Profile Picture</button> */}
 
                                 {/* <input
                                     value={this.state.password}
@@ -148,15 +150,27 @@ class Profile extends Component {
                                     placeholder='Verify Password'
                                     onChange={e => this.handleInput(e)} />
                                 <button onClick={this.editPassword}>Update Password</button> */}
-                                <button onClick={this.homeView} >Finished Updating</button>
+                                <button onClick={this.homeView} className='finished'>Finished Updating</button>
                             </>
                         )
-                        : <div>
-                            <img src={this.state.profilePic} alt='Profile-Picture' />
-                            <h2>Email: {this.state.email}</h2>
-                            <h2>Username: {this.state.username}</h2>
-                            <div >
-                                <h3 onClick={this.editView}>Update Your Info</h3>
+                        : <div className='profile-display'>
+                            {/* <img src={this.state.profilePic} alt='profile-picture' className='profile-picture'/> */}
+                            {/* <h2 className='profile-text'>Email: {this.state.email}</h2> */}
+                            <div className='user-update'>
+                                <h2 className='username'>Welcome to Your Desk</h2>
+                                <h3 onClick={this.editView} className='update'>-update your info here-</h3>
+                            </div>
+                            <div className='link-box'>
+                                <Link to='/notes' >
+                                    <h2  className='notes' >Notes</h2>
+                                </Link>
+                                <Link to='/journal' >
+                                    <h2 className='journal'>Journal</h2>
+                                </Link>
+                                <Link to='/quotes' >
+                                    <h2  className='quotes'>Quotes</h2>
+                                </Link>
+
                             </div>
                         </div>
 
@@ -167,11 +181,7 @@ class Profile extends Component {
     }
 }
 
-
-
-
-
 const mapStateToProps = reduxState => reduxState;
 
-export default connect(mapStateToProps, { getUser })(Profile);
+export default withRouter(connect(mapStateToProps, { getUser })(Profile));
 

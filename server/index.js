@@ -33,7 +33,7 @@ app.get('/api/logout', authCtrl.logout)
 //User Endpoints
 app.put('/api/user/:id', mainCtrl.updateUsername)
 // app.put('/api/user/:id', mainCtrl.updatePassword)
-app.put('/api/user/:id', mainCtrl.updateProfilePic)
+// app.put('/api/user/:id', mainCtrl.updateProfilePic)
 app.put('/api/user/:id', mainCtrl.updateEmail)
 
 

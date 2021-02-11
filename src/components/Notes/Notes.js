@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { useState, useEffect } from 'react'
 import { getUser } from '../../ducks/reducer'
 import './Notes.css'
+// import '../../styles/Notes.css'
 
 const Notes = props => {
     const [notes, setNotes] = useState([])
@@ -37,6 +38,7 @@ const getNotes = () => {
             key={note.note_id}
             note={note}
             getNotes={getNotes}
+            className='note'
         />
     })
 

@@ -4,11 +4,14 @@ import { connect } from 'react-redux'
 import { useState, useEffect } from 'react'
 import { getUser } from '../../ducks/reducer'
 import './Journal.css'
+// import '../../styles/Journal.css'
 
 
 const Journal = props => {
     const [journal, setJournal] = useState([])
     const [entry, setEntry] = useState('')
+    const [addView, setAddView] = useState(false)
+
 
     const getJournal = () => {
         const id = props.user.user_id
@@ -25,6 +28,7 @@ const Journal = props => {
             .then(() => {
                 setEntry('')
                 getJournal()
+                alert('Added Newest Entry')
             })
             .catch(err => console.log(err))
     }
@@ -33,25 +37,50 @@ const Journal = props => {
         getJournal()
     }, [])
 
+    const addViewTrue = () => {
+        setAddView(true)
+    }
+
+    const addViewFalse = () => {
+        setAddView(false)
+    }
+
+
 
     const mappedJournal = journal.map(entry => {
         return <Entry
             key={entry.entry_id}
             entry={entry}
             getJournal={getJournal}
+            className='entry'
         />
     })
 
     return (
 
         <div className='journal-page'>
-            <header>Your Journal</header>
-            <div className='entry-input-box'>
-                <input className='entry-input-text' value={entry}
-                    onChange={e => setEntry(e.target.value)} />
-                <button onClick={createEntry}>Add Entry</button>
-            </div>
-            {mappedJournal}
+            <section className='content'>
+                {addView
+                    ? (
+                        <>
+                            <div className='entry-input-box'>
+                                <h2 className='journal-title'>New Entry</h2>
+                                <button onClick={addViewFalse}>Return to Journal</button>
+                                <input className='entry-input-text' value={entry}
+                                    onChange={e => setEntry(e.target.value)} />
+                                <button onClick={createEntry} >Add Entry</button>
+                            </div>
+                        </>
+                    )
+                    :
+                    <main>
+                        <h2 className='journal-title'>Your Journal</h2>
+
+                        <button className='add-view' onClick={addViewTrue}>Add New Entry</button>
+                        {mappedJournal}
+                    </main>
+                }
+            </section>
         </div>
     )
 }

@@ -2,8 +2,7 @@ create table users
 (user_id serial primary key,
 username varchar(50) not null,
 password varchar(250) not null,
-email varchar(200) not null,
-profile_pic text);
+email varchar(200) not null;
 
 create table journal
 (entry_id serial primary key,

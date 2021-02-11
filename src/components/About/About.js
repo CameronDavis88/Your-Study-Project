@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import './About.css'
+// import '../../styles/About'
+// import './About.css'
 
-export class About extends Component {
+class About extends Component {
     render() {
         return (
             <div>
-                <span>About The Study</span>
+                <span>About Your Study</span>
                 <p>Content: Describing the purpose and use of the site</p>
             </div>
         )

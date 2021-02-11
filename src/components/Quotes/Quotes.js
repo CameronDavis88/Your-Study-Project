@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { getUser } from '../../ducks/reducer'
 import Quote from './Quote'
 import './Quotes.css'
+// import '../../styles/Quotes.css'
 
 const Quotes = props => {
 

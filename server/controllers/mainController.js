@@ -18,14 +18,7 @@ module.exports = {
     //         .catch(err => res.status(500).send(err))
     // },
 
-    updateProfilePic: (req, res) => {
-        const { id } = req.params
-        const { profilePic } = req.body
-        const db = req.app.get('db')
-        db.user.edit_profile_pic({ id, profilePic })
-            .then(([user]) => res.status(200).send(user))
-            .catch(err => res.status(500).send(err))
-    },
+    
 
     updateEmail: (req, res) => {
         const { id } = req.params
