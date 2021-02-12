@@ -1,141 +1,210 @@
 .login-page {
-    background: url('https://i0.wp.com/www.christiesrealestate.com/blog/wp-content/uploads/2019/10/FL-Library.jpg?fit=1920%2C1200&ssl=1')
-     no-repeat center center fixed;
-    box-sizing: border-box;
-    background-size: cover; 
-    height: 85vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-     position: relative;
-    top: 10vh;
+  background: url("https://i0.wp.com/www.christiesrealestate.com/blog/wp-content/uploads/2019/10/FL-Library.jpg?fit=1920%2C1200&ssl=1") no-repeat center center fixed;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-size: cover;
+  height: 85vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+  position: relative;
+  top: 10vh;
 }
-.enter{
-    font-size: 60px;
-   border-radius: 2px solid white;
-   justify-content: center;
-    align-items: center; 
-    color: white;
-    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-    margin: 0px 0px 100px 0px;
-}
-.authentication-info {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    z-index: 500;
-    align-items: center;
-    flex-direction: column;
+
+.enter {
+  font-size: 60px;
+  border-radius: 2px solid white;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
   margin: 0px 0px 100px 0px;
 }
+
+.authentication-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 500;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0px 0px 100px 0px;
+}
+
 .input-class {
-    box-sizing: border-box;
-    justify-content: center;
-    align-items: center; 
-    background-color:rgba(0, 0, 0, 0);
-    border: white solid thin;
-    border-radius: 1px;
-    box-shadow:  1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-    font-size: 20px;
-    color: white;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+  border: white solid thin;
+  border-radius: 1px;
+  -webkit-box-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+          box-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  font-size: 20px;
+  color: white;
+}
 
+.Email {
+  color: white;
 }
-.Email{
-color: white;
+
+::-webkit-input-placeholder {
+  color: white;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
-::placeholder{
-    color: white;
-    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+
+::-moz-placeholder {
+  color: white;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
- .login-here-text {
-    font-size: 40px;
-    color: white;
-   border-radius: 1px  white solid;
-   justify-content: center;
-    align-items: center; 
-    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+
+:-ms-input-placeholder {
+  color: white;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+::-ms-input-placeholder {
+  color: white;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+::placeholder {
+  color: white;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.login-here-text {
+  font-size: 40px;
+  color: white;
+  border-radius: 1px white solid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  margin-bottom: 20px;
+}
+
+p {
+  color: white;
+  font-size: larger;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  margin-top: 10px;
+}
+
+span {
+  cursor: pointer;
+  font-style: italic;
+}
+
+button {
+  font-size: large;
+  color: white;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  border: white solid thin;
+  border-radius: 1px;
+  -webkit-box-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+          box-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+@media (max-width: 775px) {
+  .authentication-info {
+    margin: 0px 0px 175px 0px;
+  }
+
+  .input-class {
+    font-size: 35px;
+    text-align: center;
+  }
+
+  .login-here-text {
+    font-size: 50px;
     margin-bottom: 20px;
-} 
-p{
-    color: white;
-    font-size: larger;
-    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-    margin-top: 10px;
-}
-span{
-    cursor: pointer;
-    font-style: italic;
-}
-button{
-    font-size: large;
-    color: white;
-    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-    cursor: pointer;
-    background-color:rgba(0, 0, 0, 0);
-    border: white solid thin;
-    border-radius: 1px;
-    box-shadow:  1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-}
+  }
 
-@media (max-width: 775px){
-  
-    .authentication-info {
-      margin: 0px 0px 175px 0px;
-    }
-    .input-class {
-        font-size: 35px;
-        text-align: center;
-    }
-     .login-here-text {
-        font-size: 50px;
-        margin-bottom: 20px;
-    } 
-    p{
-        font-size: 30px;
-        margin-top: 125px;
-    }
-    button{
-        font-size: xx-large;
-    }
+  p {
+    font-size: 30px;
+    margin-top: 125px;
+  }
+
+  button {
+    font-size: xx-large;
+  }
 }
+@media (max-width: 450px) {
+  .authentication-info {
+    margin: 0px 0px 0px 0px;
+  }
 
-@media (max-width: 450px){
-  
-    .authentication-info {
-      margin: 0px 0px 0px 0px;
-    }
-    .input-class {
-        font-size: 30px;
-        text-align: center;
-    }
-     .login-here-text {
-        font-size: 40px;
-        margin-bottom: 20px;
-    } 
-    p{
-        font-size: 25px;
-        margin-top: 60px;
-        background-color: rgb(58, 52, 52);
-    }
-    button{
-        font-size: x-large;
-    }
-    .login-page {
-       
-        display: flex;
-        justify-content: center;
-        align-items: baseline;
-    }
-    .enter{
-        margin-top: 0px;
-        font-size: 45px;
-        word-wrap: normal;
-    }
+  .input-class {
+    font-size: 30px;
+    text-align: center;
+  }
 
-    .login-page{
-        padding-top: 90px;
-    }
-}
+  .login-here-text {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
 
+  p {
+    font-size: 25px;
+    margin-top: 60px;
+    background-color: #3a3434;
+  }
+
+  button {
+    font-size: x-large;
+  }
+
+  .login-page {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+  }
+
+  .enter {
+    margin-top: 0px;
+    font-size: 45px;
+    word-wrap: normal;
+  }
+
+  .login-page {
+    padding-top: 90px;
+  }
+}/*# sourceMappingURL=Login.css.map */

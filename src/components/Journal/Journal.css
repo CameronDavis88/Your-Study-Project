@@ -1,90 +1,128 @@
-
-.journal-page{
-    background-image: url('https://i.pinimg.com/originals/0a/f2/b5/0af2b5784b476b910a546dc6ad665b37.jpg') ;
-    box-sizing: border-box;
-    background-size: cover repeat; 
-    height: 1000vh; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 1;
-    position: relative;
-    top: 10vh;
+.journal-page {
+  background-image: url("https://i.pinimg.com/originals/0a/f2/b5/0af2b5784b476b910a546dc6ad665b37.jpg");
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-size: cover repeat;
+  height: 1000vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+  position: relative;
+  top: 10vh;
 }
 
-.entry-input-text{
-    display: flex;
-    background-image: url( 'https://i.pinimg.com/originals/be/22/94/be2294d961358cf8ae34fa78353534af.jpg' ) ;
-    background-size: no-repeat center center fixed;
-    font-size: 20px;
-    color: black;
-    word-wrap: normal;
-    height: fit-content;
-    width: 90vw;
-    overflow: visible;
-    justify-content: flex-start;
+.entry-input-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-image: url("https://i.pinimg.com/originals/be/22/94/be2294d961358cf8ae34fa78353534af.jpg");
+  background-size: no-repeat center center fixed;
+  font-size: 20px;
+  color: black;
+  word-wrap: normal;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 90vw;
+  overflow: visible;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
-.entry-p-text{
-    width: 90vw;
-    height: 20vh;
+.entry-p-text {
+  width: 90vw;
+  height: 20vh;
 }
 
-input { 
-    text-align: top; 
-    word-wrap: normal;
+input {
+  text-align: top;
+  word-wrap: normal;
 }
 
-
-.journal-title{
-    position: relative;
-    top: -45px;
-    font-size: 45px;
-    color:white;
-    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-    box-sizing: border-box;
-   
+.journal-title {
+  position: relative;
+  top: -45px;
+  font-size: 45px;
+  color: white;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-.content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    top:75px;
-    height: fit-content;
-    width: fit-content;
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  top: 75px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
- main{
-     display: flex;
-     flex-direction: column;
 
-    height: fit-content;
-    width: fit-content;
- }
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
 
- .add-view{
-     margin-bottom: 35px;
-     height: 7vh;
- }
+.add-view {
+  margin-bottom: 35px;
+  height: 7vh;
+}
 
- .entry-input-box{
-     display: flex;
-     flex-direction: column;
- }
+.entry-input-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 
- .entry-container{
-     margin-top: 10px;
-     margin-bottom: 10px;
- }
+.entry-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
- .title-box{
-     display: flex;
-     justify-content: center;
- }
-
-
-
-
- 
+.title-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}/*# sourceMappingURL=Journal.css.map */

@@ -4,7 +4,6 @@
     height: fit-content;
     width: fit-content;
 }
-
 .editing-text-input{
     display: flex;
     flex-direction: column;

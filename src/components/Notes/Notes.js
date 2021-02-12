@@ -4,14 +4,11 @@ import { connect } from 'react-redux'
 import { useState, useEffect } from 'react'
 import { getUser } from '../../ducks/reducer'
 import './Notes.css'
-// import '../../styles/Notes.css'
-
 
 const Notes = props => {
     const [notes, setNotes] = useState([])
     const [note, setNote] = useState('')
     const [addView, setAddView] = useState(false)
-
 
     const getNotes = () => {
         const id = props.user.user_id
@@ -44,8 +41,6 @@ const Notes = props => {
     const addViewFalse = () => {
         setAddView(false)
     }
-
-
 
     const mappedNotes = notes.map(note => {
         return <Note

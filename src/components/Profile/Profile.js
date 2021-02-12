@@ -4,7 +4,6 @@ import { withRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getUser } from '../../ducks/reducer'
 import './Profile.css'
-// import '../../styles/Profile.css'
 
 class Profile extends Component {
     constructor(props) {
@@ -14,7 +13,6 @@ class Profile extends Component {
         this.state = {
             username: username,
             email: email,
-            // profilePic: 'http://sunfieldfarm.org/wp-content/uploads/2014/02/profile-placeholder.png',
             // password: '',
             // verPassword: '',
             editingView: false
@@ -59,19 +57,6 @@ class Profile extends Component {
             .catch(err => console.log(err));
     }
 
-    // editProfilePic = () => {
-    //     const id = this.props.user.user_id
-    //     const profilePic = this.state.profilePic
-    //     axios.put(`/api/user/${id}`, { profilePic })
-    //         .then(res => {
-
-    //             this.setState({ profilePic: res.data.profilePic })
-    //             alert('Profile Picture Updated')
-    //         })
-    //         .catch(err => console.log(err), alert('Profile data unreadable'));
-    // }
-
-
     // editPassword = () => {
     //     const id = this.props.user.user_id
     //     const password = this.state.password
@@ -102,7 +87,6 @@ class Profile extends Component {
     //     }
     // }
 
-
     render() {
         return (
             <div className='home-page'>
@@ -132,13 +116,6 @@ class Profile extends Component {
                                 </div>
                                 </section>
                                 {/* <input
-                                    value={this.state.profilePicture}
-                                    name='profilePicture'
-                                    placeholder='Profile Picture URL'
-                                    onChange={e => this.handleInput(e)} />
-                                <button onClick={this.editProfilePic}>Update Profile Picture</button> */}
-
-                                {/* <input
                                     value={this.state.password}
                                     name='password'
                                     type='password'
@@ -155,8 +132,6 @@ class Profile extends Component {
                             </>
                         )
                         : <div className='profile-display'>
-                            {/* <img src={this.state.profilePic} alt='profile-picture' className='profile-picture'/> */}
-                            {/* <h2 className='profile-text'>Email: {this.state.email}</h2> */}
                             <div className='user-update'>
                                 <div className='title-box' >
                                 <h2 className='username'>Welcome to Your Desk</h2>
@@ -178,7 +153,6 @@ class Profile extends Component {
 
                             </div>
                         </div>
-
                     }
                 </section>
             </div>

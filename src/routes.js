@@ -7,8 +7,6 @@ import Notes from './components/Notes/Notes'
 import Profile from './components/Profile/Profile'
 import Quotes from './components/Quotes/Quotes'
 
-
-
 export default (
     <Switch>
         

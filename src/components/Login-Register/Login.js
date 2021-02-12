@@ -3,9 +3,8 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import { getUser } from '..//../ducks/reducer'
 import './Login.css'
-// const nodemailer =require('nodemailer')
-import nodemailer from 'nodemailer'
-// import '../../styles/Login.css'
+const nodemailer =require('nodemailer')
+
 
 class Login extends Component {
     constructor(props) {
@@ -19,15 +18,29 @@ class Login extends Component {
         }
     }
 
-    // sendEmail = () => {
-    //     nodemailer.sendMail({
-    //         from: '"Your Study" <cammien88@gmail.com>', // sender address
-    //         to: `${this.email}`, // list of receivers
-    //         subject: "Welcome", // Subject line
-    //         text: `Hello ${this.username}, welcome to Your Study!`, // plain text body
-    //         html: "<b>Hello world?</b>", // html body
-    //       });
-    // }
+    sendEmail = () => {
+        const transporter = nodemailer.createTransport({
+     
+            service: 'hotmail',
+            auth: {
+              user: 'cammien@byui.edu',
+              pass: 'Bigfoot1'
+            },
+          });
+          const options = {
+            from: 'cammien@byui.edu', 
+            to: `${this.email}`, 
+            subject: "Your Study Registration", 
+            text: "Welcome to Your Study"
+          };
+          transporter.sendMail(options, function(err, info){
+              if(err){
+                  console.log(err);
+                  return;
+              }
+              console.log('Sent: ' + info.response)
+          })
+    }
 
     handleInput = (event) => {
         this.setState({ [event.target.name]: event.target.value })
@@ -45,7 +58,7 @@ class Login extends Component {
                 .then(res => {
                     this.props.getUser(res.data)
                     this.props.history.push('/profile')
-                    // this.sendEmail()
+                    this.sendEmail()
                 })
                 .catch(err => console.log(err))
         } else {
@@ -104,11 +117,6 @@ class Login extends Component {
                                     type='password'
                                     placeholder='Verify Password'
                                     onChange={e => this.handleInput(e)} />
-                                {/* <input className='input-class'
-                                    value={this.state.profilePicture}
-                                    name='profilePicture'
-                                    placeholder='Profile Picture URL'
-                                    onChange={e => this.handleInput(e)} /> */}
                                 <button onClick={this.handleRegister}>Register</button>
                                 <p>Have an account? <span onClick={this.handleToggle}>Login here</span></p>
                             </>

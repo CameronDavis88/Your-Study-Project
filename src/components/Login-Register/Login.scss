@@ -1,0 +1,138 @@
+.login-page {
+    background: url('https://i0.wp.com/www.christiesrealestate.com/blog/wp-content/uploads/2019/10/FL-Library.jpg?fit=1920%2C1200&ssl=1')
+     no-repeat center center fixed;
+    box-sizing: border-box;
+    background-size: cover; 
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+     position: relative;
+    top: 10vh;
+}
+.enter{
+    font-size: 60px;
+   border-radius: 2px solid white;
+   justify-content: center;
+    align-items: center; 
+    color: white;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    margin: 0px 0px 100px 0px;
+}
+.authentication-info {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    z-index: 500;
+    align-items: center;
+    flex-direction: column;
+  margin: 0px 0px 100px 0px;
+}
+.input-class {
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center; 
+    background-color:rgba(0, 0, 0, 0);
+    border: white solid thin;
+    border-radius: 1px;
+    box-shadow:  1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    font-size: 20px;
+    color: white;
+}
+.Email{
+color: white;
+}
+::placeholder{
+    color: white;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+ .login-here-text {
+    font-size: 40px;
+    color: white;
+   border-radius: 1px  white solid;
+   justify-content: center;
+    align-items: center; 
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    margin-bottom: 20px;
+} 
+p{
+    color: white;
+    font-size: larger;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    margin-top: 10px;
+}
+span{
+    cursor: pointer;
+    font-style: italic;
+}
+button{
+    font-size: large;
+    color: white;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    cursor: pointer;
+    background-color:rgba(0, 0, 0, 0);
+    border: white solid thin;
+    border-radius: 1px;
+    box-shadow:  1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+@media (max-width: 775px){
+  
+    .authentication-info {
+      margin: 0px 0px 175px 0px;
+    }
+    .input-class {
+        font-size: 35px;
+        text-align: center;
+    }
+     .login-here-text {
+        font-size: 50px;
+        margin-bottom: 20px;
+    } 
+    p{
+        font-size: 30px;
+        margin-top: 125px;
+    }
+    button{
+        font-size: xx-large;
+    }
+}
+
+@media (max-width: 450px){
+  
+    .authentication-info {
+      margin: 0px 0px 0px 0px;
+    }
+    .input-class {
+        font-size: 30px;
+        text-align: center;
+    }
+     .login-here-text {
+        font-size: 40px;
+        margin-bottom: 20px;
+    } 
+    p{
+        font-size: 25px;
+        margin-top: 60px;
+        background-color: rgb(58, 52, 52);
+    }
+    button{
+        font-size: x-large;
+    }
+    .login-page {
+       
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+    }
+    .enter{
+        margin-top: 0px;
+        font-size: 45px;
+        word-wrap: normal;
+    }
+    .login-page{
+        padding-top: 90px;
+    }
+}

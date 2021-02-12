@@ -4,7 +4,6 @@
     height: fit-content;
     width: fit-content;
 }
-
 .editing-text-input{
     display: flex;
     flex-direction: column;
@@ -14,7 +13,5 @@
     color: black;
     word-wrap: unset;
     height: fit-content;
-    
-    /* height: 50px; */
     width: 90vw;
 }

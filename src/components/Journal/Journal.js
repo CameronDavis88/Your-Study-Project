@@ -4,15 +4,12 @@ import { connect } from 'react-redux'
 import { useState, useEffect } from 'react'
 import { getUser } from '../../ducks/reducer'
 import './Journal.css'
-// import '../../styles/Journal.css'
-
-
 
 const Journal = props => {
+
     const [journal, setJournal] = useState([])
     const [entry, setEntry] = useState('')
     const [addView, setAddView] = useState(false)
-
 
     const getJournal = () => {
         const id = props.user.user_id
@@ -22,14 +19,12 @@ const Journal = props => {
             })
             .catch(err => console.log(err))
     }
-
     const createEntry = () => {
         const id = props.user.user_id
         axios.post(`/api/entry/${id}`, { entry })
             .then(() => {
                 setEntry('')
                 getJournal()
-                // alert('Added Newest Entry')
                 addViewFalse()
             })
             .catch(err => console.log(err))
@@ -46,8 +41,6 @@ const Journal = props => {
     const addViewFalse = () => {
         setAddView(false)
     }
-
-
 
     const mappedJournal = journal.map(entry => {
         return <Entry

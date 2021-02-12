@@ -2,11 +2,9 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import './Note.css'
 
-
 const Note = props => {
 
     const [note, setNote] = useState(props.note.note)
-    // const [addView, setAddView] = useState(false)
 
     const deleteNote = () => {
         const id = props.note.note_id

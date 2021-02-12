@@ -13,7 +13,6 @@
     top: 10vh;
     flex-direction: column;
 } 
-
  .about-title{
     position: relative;
     bottom: 115px;
@@ -21,19 +20,13 @@
     color:white;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
-
 .about-content{
     box-sizing: border-box;
     justify-content: center;
     align-items: center; 
     background-color:rgba(0, 0, 0, 0); 
-    /* border: white solid thin;  */
-    /* border: #000 thin; */
     border-radius: 1px;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000; 
     font-size: 20px;
     color: white;
-    /* box-shadow:  1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000; 
-    background-image: url( 'https://i.pinimg.com/originals/be/22/94/be2294d961358cf8ae34fa78353534af.jpg' ) ; */
-   
 } 
