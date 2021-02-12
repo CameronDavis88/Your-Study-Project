@@ -12,22 +12,52 @@
     border: solid black 1.5px;
     position: fixed;
 }
-
-
 h2{
     cursor: pointer;
     text-decoration: none;
     color: black;
     font-size: 20px;
     font-family: Georgia;
-
-    
-
-
 }
-
 h1{
     font-size: 40px;
     margin-right: 750px;
     font-family: Georgia;
 }
+
+@media (max-width:900px){
+    h2{
+        font-size: 20px;
+    }
+    
+    h1{
+        font-size: 35px;
+        margin-right: 250px;
+    }
+}
+@media (max-width: 775px){
+
+    h2{
+        font-size: 30px;
+    }
+    
+    h1{
+        font-size: 30px;
+        margin-right: 125px;
+    }
+}
+@media (max-width: 450px){
+    .header-box {
+        padding: 0px 10px;
+    }
+    h2{
+        font-size: 17px;
+    }
+    h1{
+        font-size: 25px;
+        margin-right: 10px;
+        margin-left: -5px;
+    }
+}
+
+

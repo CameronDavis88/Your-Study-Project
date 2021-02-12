@@ -119,7 +119,8 @@ class Profile extends Component {
                                         name='username'
                                         placeholder='Username'
                                         onChange={e => this.handleInput(e)} />
-                                    <button onClick={this.editUsername}>Update</button>
+                                       
+                                    <button onClick={this.editUsername}>Update</button>  
                                 </div>
                                 <div className='update-username-box'>
                                     <input className='inputs'
@@ -157,8 +158,12 @@ class Profile extends Component {
                             {/* <img src={this.state.profilePic} alt='profile-picture' className='profile-picture'/> */}
                             {/* <h2 className='profile-text'>Email: {this.state.email}</h2> */}
                             <div className='user-update'>
+                                <div className='title-box' >
                                 <h2 className='username'>Welcome to Your Desk</h2>
+                                </div>
+                                <div className='title-box' >
                                 <h3 onClick={this.editView} className='update'>-update your info here-</h3>
+                                </div>
                             </div>
                             <div className='link-box'>
                                 <Link to='/notes' >

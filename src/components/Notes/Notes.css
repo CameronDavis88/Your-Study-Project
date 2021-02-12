@@ -1,15 +1,3 @@
-/* .notes-page{
-        background-image: url('https://i.pinimg.com/originals/0a/f2/b5/0af2b5784b476b910a546dc6ad665b37.jpg');
-        box-sizing: border-box;
-        background-size: cover; 
-        height: 90vh; 
-        display: flex;
-        flex-direction: column;
-        z-index: 1;
-        position: relative;
-    top: 10vh;
-} */
-
 .notes-page{
     background-image: url('https://i.pinimg.com/originals/0a/f2/b5/0af2b5784b476b910a546dc6ad665b37.jpg') ;
     box-sizing: border-box;
@@ -22,10 +10,8 @@
     position: relative;
     top: 10vh;
 }
-
 .note-input-text{
     display: flex;
-    /* flex-direction: column; */
     background-image: url( 'https://i.pinimg.com/originals/be/22/94/be2294d961358cf8ae34fa78353534af.jpg' ) ;
     background-size: no-repeat center center fixed;
     font-size: 20px;
@@ -34,29 +20,16 @@
     height: fit-content;
     width: 90vw;
     overflow: visible;
-    /* height: 40vh; */
     justify-content: flex-start;
-   
-    
-/*     
-   min-width: 75vw;
-   max-width: fit-content;
-   display: inline-flex;
-   flex-wrap: wrap; */
-
 }
-
 .note-p-text{
     width: 90vw;
     height: 20vh;
 }
-
 input { 
     text-align: top; 
     word-wrap: normal;
 }
-
-
 .notes-title{
     position: relative;
     top: -45px;
@@ -65,7 +38,6 @@ input {
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     box-sizing: border-box;
 }
-
 .content{
     display: flex;
     flex-direction: column;
@@ -75,6 +47,7 @@ input {
     top:75px;
     height: fit-content;
     width: fit-content;
+
 }
  main{
      display: flex;

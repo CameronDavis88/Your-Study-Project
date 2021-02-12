@@ -12,23 +12,18 @@
     position: relative;
     top: 10vh;
 }
-
 .profile-display {
    display: flex;
    align-items: center;
-   flex-direction: column;
-    
+   flex-direction: column;   
 }
-
 h3{
     align-items: center;
 }
-
 .profile-text {
     z-index: 3;
 
 }
-
 .link-box{
 display: flex;
 align-items: center;
@@ -36,16 +31,7 @@ flex-direction: row;
 justify-content:space-between;
 width: 100vw;
 margin-top: 25px;
-
 }
-
-/* .links {
-    text-decoration-line: none;
-    justify-content:space-between;
-    margin-top: 0px;
-    margin-bottom: 50px;
-} */
-
 .notes{
     border: solid white thin;
     margin-left: 350px;
@@ -54,26 +40,21 @@ margin-top: 25px;
     font-size: 25px;
     box-shadow:  1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
-
 .quotes{
     margin-right: 350px;
     color:white;
     border: solid white thin;
-    
     font-size: 25px;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     box-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
-
 .journal{
-    
     border: solid white thin;
     font-size: 25px;
     color:white;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     box-shadow:  1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
-
 .update{
     position: relative;
     font-size: large;
@@ -82,9 +63,7 @@ margin-top: 25px;
     color:white;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     font-style: italic;
-    margin-left: 135px;
 }
-
 .username{
     position: relative;
     bottom: 115px;
@@ -92,7 +71,6 @@ margin-top: 25px;
     color:white;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
-
 .update-title{
     position: relative;
     bottom: 40px;
@@ -100,7 +78,6 @@ margin-top: 25px;
     color:white;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
-
 .inputs{
         box-sizing: border-box;
         justify-content: center;
@@ -113,15 +90,100 @@ margin-top: 25px;
         color: white;
         box-shadow:  1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
-
 .updating-box{
     margin-bottom: 60px;
 }
-
 .finished{
     margin-bottom: 70px;
 }
-
 button{
     height: 28px;
+}
+
+@media (max-width: 775px){
+    .link-box{
+    width: 100vw;
+    margin-top: 40px;
+    }
+    .notes{   
+        margin-left: 50px; 
+        font-size: 35px;
+    }
+    .quotes{
+        margin-right: 50px;
+        font-size: 35px;
+    }
+    .journal{
+        font-size: 35px;
+        color:white;
+    }
+    .update{
+        font-size: 40px;
+        bottom: 110px;
+    }
+    .username{
+        bottom: 115px;
+        font-size: 60px;
+    }
+    .update-title{
+        bottom: 40px;
+        font-size: 60px;
+        margin-left: 60px;
+        margin-bottom: 60px;
+    }
+    .inputs{
+            font-size: 35px;
+            text-align: center;
+    }
+    .updating-box{
+        margin-bottom: 60px;
+    }
+    .finished{
+        margin-bottom: 130px;
+    }
+}
+
+@media (max-width: 450px){
+    .link-box{
+    margin-top: 20px;
+    margin-bottom: 120px;
+    }
+    .notes{   
+        margin-left: 10px; 
+        font-size: 35px;
+    }
+    .quotes{
+        margin-right: 10px;
+        font-size: 35px;
+    }
+    .journal{
+        font-size: 35px;
+        color:white;
+    }
+    .update{
+        font-size: 30px;
+        bottom: 110px;
+        margin: 0px 0px 0px 0px;
+    }
+    .username{
+        bottom: 115px;
+        font-size: 40px;
+    }
+    .update-title{
+        bottom: 40px;
+        font-size: 40px;
+        margin-left: 60px;
+        margin-bottom: 0px;
+    }
+    .inputs{
+     font-size: 25px;
+    }
+    .updating-box{
+        margin-bottom: 60px;
+    }
+    .finished{
+        margin-bottom: 185px;
+    }
+  
+     
 }

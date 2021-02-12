@@ -64,7 +64,9 @@ const Notes = props => {
                     ? (
                         <>
                             <div className='note-input-box'>
+                                <div className='title-box' >
                                 <h2 className='notes-title'>New Note</h2>
+                                </div>
                                 <button onClick={addViewFalse}>Return to Notes</button>
                                 <input type='text' className='note-input-text' value={note}
                                     onChange={e => setNote(e.target.value)} />
@@ -74,8 +76,9 @@ const Notes = props => {
                     )
                     :
                     <main>
+                        <div className='title-box' >
                         <h2 className='notes-title'>Your Notes</h2>
-
+                        </div>
                         <button className='add-view' onClick={addViewTrue}>Add New Note</button>
                         {mappedNotes}
                     </main>

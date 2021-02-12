@@ -66,7 +66,9 @@ const Journal = props => {
                     ? (
                         <>
                             <div className='entry-input-box'>
+                                <div className='title-box' >
                                 <h2 className='journal-title'>New Entry</h2>
+                                </div>
                                 <button onClick={addViewFalse}>Return to Journal</button>
                                 <input type='text' className='entry-input-text' value={entry}
                                     onChange={e => setEntry(e.target.value)} />
@@ -76,8 +78,9 @@ const Journal = props => {
                     )
                     :
                     <main>
+                        <div className='title-box' >
                         <h2 className='journal-title'>Your Journal</h2>
-
+                        </div>
                         <button className='add-view' onClick={addViewTrue}>Add New Entry</button>
                         {mappedJournal}
                     </main>
