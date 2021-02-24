@@ -30,7 +30,14 @@ const Quotes = props => {
             .catch(err => console.log(err))
     }
 
+    const loggedinView = () => {
+        if (!props.user.user_id) {
+            props.history.push('/')
+        }
+    }
+
     useEffect(() => {
+        loggedinView()
         getQuotes()
     }, [])
 

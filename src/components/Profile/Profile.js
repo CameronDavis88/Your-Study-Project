@@ -20,13 +20,21 @@ class Profile extends Component {
         }
     }
 
+    loggedinView = () => {
+        if (!this.props.user.user_id) {
+            this.props.history.push('/')
+        }
+    }
+
     componentDidMount() {
+        this.loggedinView()
         getUser()
     }
 
     editView = () => {
         this.setState({ editingView: true })
     }
+    
     homeView = () => {
         this.setState({ editingView: false })
     }
@@ -94,26 +102,26 @@ class Profile extends Component {
                     {this.state.editingView
                         ? (
                             <>
-                            <section className='updating-box'>
-                                <h3 className='update-title'>Update Your Info</h3>
-                                <div className='update-username-box'>
-                                    <input
-                                    className='inputs'
-                                        value={this.state.username}
-                                        name='username'
-                                        placeholder='Username'
-                                        onChange={e => this.handleInput(e)} />
-                                       
-                                    <button onClick={this.editUsername}>Update</button>  
-                                </div>
-                                <div className='update-username-box'>
-                                    <input className='inputs'
-                                        value={this.state.email}
-                                        name='email'
-                                        placeholder='Email'
-                                        onChange={e => this.handleInput(e)} />
-                                    <button onClick={this.editEmail}>Update</button>
-                                </div>
+                                <section className='updating-box'>
+                                    <h3 className='update-title'>Update Your Info</h3>
+                                    <div className='update-username-box'>
+                                        <input
+                                            className='inputs'
+                                            value={this.state.username}
+                                            name='username'
+                                            placeholder='Username'
+                                            onChange={e => this.handleInput(e)} />
+
+                                        <button onClick={this.editUsername}>Update</button>
+                                    </div>
+                                    <div className='update-username-box'>
+                                        <input className='inputs'
+                                            value={this.state.email}
+                                            name='email'
+                                            placeholder='Email'
+                                            onChange={e => this.handleInput(e)} />
+                                        <button onClick={this.editEmail}>Update</button>
+                                    </div>
                                 </section>
                                 {/* <input
                                     value={this.state.password}
@@ -134,21 +142,21 @@ class Profile extends Component {
                         : <div className='profile-display'>
                             <div className='user-update'>
                                 <div className='title-box' >
-                                <h2 className='username'>Welcome to Your Desk</h2>
+                                    <h2 className='username'>Welcome to Your Desk</h2>
                                 </div>
                                 <div className='title-box' >
-                                <h3 onClick={this.editView} className='update'>-update your info here-</h3>
+                                    <h3 onClick={this.editView} className='update'>-update your info here-</h3>
                                 </div>
                             </div>
                             <div className='link-box'>
                                 <Link to='/notes' >
-                                    <h2  className='notes' >Notes</h2>
+                                    <h2 className='notes' >Notes</h2>
                                 </Link>
                                 <Link to='/journal' >
                                     <h2 className='journal'>Journal</h2>
                                 </Link>
                                 <Link to='/quotes' >
-                                    <h2  className='quotes'>Quotes</h2>
+                                    <h2 className='quotes'>Quotes</h2>
                                 </Link>
 
                             </div>

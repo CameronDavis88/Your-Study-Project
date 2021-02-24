@@ -3,7 +3,6 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import { getUser } from '..//../ducks/reducer'
 import './Login.css'
-const nodemailer =require('nodemailer')
 
 
 class Login extends Component {
@@ -18,29 +17,6 @@ class Login extends Component {
         }
     }
 
-    sendEmail = () => {
-        const transporter = nodemailer.createTransport({
-     
-            service: 'hotmail',
-            auth: {
-              user: 'cammien@byui.edu',
-              pass: 'Bigfoot1'
-            },
-          });
-          const options = {
-            from: 'cammien@byui.edu', 
-            to: `${this.email}`, 
-            subject: "Your Study Registration", 
-            text: "Welcome to Your Study"
-          };
-          transporter.sendMail(options, function(err, info){
-              if(err){
-                  console.log(err);
-                  return;
-              }
-              console.log('Sent: ' + info.response)
-          })
-    }
 
     handleInput = (event) => {
         this.setState({ [event.target.name]: event.target.value })
@@ -74,7 +50,10 @@ class Login extends Component {
                 this.props.getUser(res.data)
                 this.props.history.push('/profile')
             })
-            .catch(err =>alert('Username or Password not found, please try again')
+            .catch(err =>
+            alert('Username or Password not found, please try again'),
+            this.setState({email: ''}),
+            this.setState({password: ''})
             )
     }
 
