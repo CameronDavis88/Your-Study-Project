@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import axios from 'axios'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getUser } from '../../ducks/reducer'
 import './Profile.css'
@@ -34,7 +34,7 @@ class Profile extends Component {
     editView = () => {
         this.setState({ editingView: true })
     }
-    
+
     homeView = () => {
         this.setState({ editingView: false })
     }
@@ -65,6 +65,17 @@ class Profile extends Component {
             .catch(err => console.log(err));
     }
 
+    toJournal = () => {
+        this.props.history.push('/journal')
+    }
+
+    toNotes = () => {
+        this.props.history.push('/notes')
+    }
+
+    toQuotes = () => {
+        this.props.history.push('/quotes')
+    }
     // editPassword = () => {
     //     const id = this.props.user.user_id
     //     const password = this.state.password
@@ -149,16 +160,9 @@ class Profile extends Component {
                                 </div>
                             </div>
                             <div className='link-box'>
-                                <Link to='/notes' >
-                                    <h2 className='notes' >Notes</h2>
-                                </Link>
-                                <Link to='/journal' >
-                                    <h2 className='journal'>Journal</h2>
-                                </Link>
-                                <Link to='/quotes' >
-                                    <h2 className='quotes'>Quotes</h2>
-                                </Link>
-
+                                    <h2 className='notes' onClick={this.toNotes} >Notes</h2>
+                                    <h2 className='journal' onClick={this.toJournal}>Journal</h2>
+                                    <h2 className='quotes' onClick={this.toQuotes}>Quotes</h2>
                             </div>
                         </div>
                     }

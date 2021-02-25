@@ -1,14 +1,11 @@
 import axios from 'axios'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { clearUser } from '../../ducks/reducer'
-import { useState, useEffect } from 'react'
-import { getUser } from '../../ducks/reducer'
 import './Header.css'
 
 const Header = props => {
 
-    const [loggedinView, setLoggedinView] = useState(false)
 
     const logout = () => {
         axios.get('/api/logout')
@@ -18,40 +15,34 @@ const Header = props => {
             })
             .catch(err => console.log(err))
     }
-    console.log(props.user.user_id)
 
-    const ifLoggedin = () => {
-        if (props.user.user_id){
-            setLoggedinView(true)
-        }
+    const toDesk = () => {
+        props.history.push('/profile')
     }
 
-    useEffect(() => {
-        ifLoggedin()
-    }, [])
+    const toAbout = () => {
+        props.history.push('/about')
+    }
+
+    const toHome = () => {
+        props.history.push('/')
+    }
 
     return (
         <header className='header-box'>
             <h1>Your Study</h1>
-            {loggedinView
+            {props.user.user_id
                 ?
                 <>
-                    <Link to='/profile' >
-                        <h2>Your Desk</h2>
-                    </Link>
-                    <Link to='/'>
-                        <h2 className='logout' onClick={logout}>Logout</h2>
-                    </Link>
+                    <h2 onClick={toDesk}>Your Desk</h2>
+                    <h2 className='logout' onClick={logout}>Logout</h2>
                 </>
                 :
-                <> <Link to='/about'>
-                    <h2>About</h2>
-                </Link>
-                    <Link to='/'>
-                        <h2>Home</h2>
-                    </Link>
+                <>
+                    <h2 onClick={toAbout}>About</h2>
+                    <h2 onClick={toHome}>Home</h2>
                 </>
-            }      
+            }
         </header>
     )
 }
@@ -59,4 +50,4 @@ const Header = props => {
 
 const mapStateToProps = reduxState => reduxState;
 
-export default withRouter(connect(mapStateToProps, { getUser, clearUser })(Header));
+export default withRouter(connect(mapStateToProps, { clearUser })(Header));
