@@ -17,7 +17,6 @@ class Login extends Component {
         }
     }
 
-
     handleInput = (event) => {
         this.setState({ [event.target.name]: event.target.value })
     }
@@ -34,7 +33,6 @@ class Login extends Component {
                 .then(res => {
                     this.props.getUser(res.data)
                     this.props.history.push('/profile')
-                    this.sendEmail()
                 })
                 .catch(err => console.log(err))
         } else {
@@ -51,9 +49,9 @@ class Login extends Component {
                 this.props.history.push('/profile')
             })
             .catch(err =>
-            alert('Username or Password not found, please try again'),
-            this.setState({email: ''}),
-            this.setState({password: ''})
+                alert('Username or Password not found, please try again'),
+                this.setState({ email: '' }),
+                this.setState({ password: '' })
             )
     }
 
@@ -63,16 +61,15 @@ class Login extends Component {
                 <section className='authentication-info'>
                     <h1 className='enter'>Enter Your Study</h1>
                     {this.state.registerView
-                        ? (
-                            <>
-                                <h3 className='login-here-text' >Register Here</h3>
-                                <input className='input-class'
-                                    value={this.state.username}
-                                    name='username'
-                                    placeholder='Username'
-                                    onChange={e => this.handleInput(e)} />
-                            </>
-                        )
+                        ?
+                        <>
+                            <h3 className='login-here-text' >Register Here</h3>
+                            <input className='input-class'
+                                value={this.state.username}
+                                name='username'
+                                placeholder='Username'
+                                onChange={e => this.handleInput(e)} />
+                        </>
                         :
                         <h3 className='login-here-text'>Login Here</h3>}
                     <input className='input-class'
@@ -88,24 +85,22 @@ class Login extends Component {
                         onChange={e => this.handleInput(e)} />
                     {this.state.registerView
                         ?
-                        (
-                            <>
-                                <input className='input-class'
-                                    value={this.state.verPassword}
-                                    name='verPassword'
-                                    type='password'
-                                    placeholder='Verify Password'
-                                    onChange={e => this.handleInput(e)} />
-                                <button onClick={this.handleRegister}>Register</button>
-                                <p>Have an account? <span onClick={this.handleToggle}>Login here</span></p>
-                            </>
-                        )
-                        : (
-                            <>
-                                <button onClick={this.handleLogin}>Login</button>
-                                <p>Don't have an account? <span onClick={this.handleToggle}>Register here</span></p>
-                            </>
-                        )}
+                        <>
+                            <input className='input-class'
+                                value={this.state.verPassword}
+                                name='verPassword'
+                                type='password'
+                                placeholder='Verify Password'
+                                onChange={e => this.handleInput(e)} />
+                            <button onClick={this.handleRegister}>Register</button>
+                            <p>Have an account? <span onClick={this.handleToggle}>Login here</span></p>
+                        </>
+                        :
+                        <>
+                            <button onClick={this.handleLogin}>Login</button>
+                            <p>Don't have an account? <span onClick={this.handleToggle}>Register here</span></p>
+                        </>
+                    }
                 </section>
             </div>
         )

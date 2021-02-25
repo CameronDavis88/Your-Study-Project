@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import axios from 'axios'
-import { withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getUser } from '../../ducks/reducer'
 import './Profile.css'
@@ -9,12 +9,12 @@ class Profile extends Component {
     constructor(props) {
         super(props)
 
-        const { username, email } = this.props.user
+        const { username, email, password } = this.props.user
         this.state = {
             username: username,
             email: email,
-            // password: '',
-            // verPassword: '',
+            password: password,
+            verPassword: '',
             editingView: false
 
         }
@@ -54,10 +54,26 @@ class Profile extends Component {
             .catch(err => console.log(err));
     }
 
+    editPassword = () => {
+        const id = this.props.user.user_id
+        const { password, verPassword } = this.state
+
+        if (password && password === verPassword) {
+            axios.put(`/api/user_password/${id}`, { password })
+                .then(res => {
+                    this.setState({ password: res.data.password })
+                    alert('Password Updated')
+                })
+                .catch(err => console.log(err))
+        } else {
+            alert("Passwords don't match")
+        }
+    }
+
     editEmail = () => {
         const id = this.props.user.user_id
         const email = this.state.email
-        axios.put(`/api/user/${id}`, { email })
+        axios.put(`/api/user_email/${id}`, { email })
             .then(res => {
                 this.setState({ email: res.data.email })
                 alert('Email Updated')
@@ -76,35 +92,6 @@ class Profile extends Component {
     toQuotes = () => {
         this.props.history.push('/quotes')
     }
-    // editPassword = () => {
-    //     const id = this.props.user.user_id
-    //     const password = this.state.password
-    //     axios.put(`/api/user/${id}`, { password })
-    //         .then(res => {
-
-    //             this.setState({ password: res.data.password })
-    //             alert('Password Updated')
-    //         })
-    //         .catch(err => console.log(err));
-    // }
-
-
-    // this will be the big function that fires the other fuctions I think or will just be altered into the one that verifies the password before editing it, then maybe make a sepapate button that takes you back to nonediting mode.
-
-    // handleRegister = () => {
-    //     const { password, verPassword } = this.state
-
-    //     if (password && password === verPassword) {
-    //         axios.post('/api/user/${id}', { password })
-    //             .then(res => {
-    //                 this.props.getUser(res.data)
-    //                this.setState({password: password})
-    //             })
-    //             .catch(err => console.log(err))
-    //     } else {
-    //         alert("Passwords don't match")
-    //     }
-    // }
 
     render() {
         return (
@@ -134,7 +121,7 @@ class Profile extends Component {
                                         <button onClick={this.editEmail}>Update</button>
                                     </div>
                                 </section>
-                                {/* <input
+                                <input
                                     value={this.state.password}
                                     name='password'
                                     type='password'
@@ -146,7 +133,7 @@ class Profile extends Component {
                                     type='password'
                                     placeholder='Verify Password'
                                     onChange={e => this.handleInput(e)} />
-                                <button onClick={this.editPassword}>Update Password</button> */}
+                                <button onClick={this.editPassword}>Update Password</button>
                                 <button onClick={this.homeView} className='finished'>Finished Updating</button>
                             </>
                         )
@@ -160,9 +147,9 @@ class Profile extends Component {
                                 </div>
                             </div>
                             <div className='link-box'>
-                                    <h2 className='notes' onClick={this.toNotes} >Notes</h2>
-                                    <h2 className='journal' onClick={this.toJournal}>Journal</h2>
-                                    <h2 className='quotes' onClick={this.toQuotes}>Quotes</h2>
+                                <h2 className='notes' onClick={this.toNotes} >Notes</h2>
+                                <h2 className='journal' onClick={this.toJournal}>Journal</h2>
+                                <h2 className='quotes' onClick={this.toQuotes}>Quotes</h2>
                             </div>
                         </div>
                     }

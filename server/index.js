@@ -32,9 +32,8 @@ app.get('/api/logout', authCtrl.logout)
 
 //User Endpoints
 app.put('/api/user/:id', mainCtrl.updateUsername)
-// app.put('/api/user/:id', mainCtrl.updatePassword)
-// app.put('/api/user/:id', mainCtrl.updateProfilePic)
-app.put('/api/user/:id', mainCtrl.updateEmail)
+app.put('/api/user_password/:id', mainCtrl.updatePassword)
+app.put('/api/user_email/:id', mainCtrl.updateEmail)
 
 //Journal Endpoints
 app.post('/api/entry/:id', mainCtrl.createEntry)
@@ -56,7 +55,7 @@ app.put('/api/note/:id', mainCtrl.updateNote)
 
 app.use(express.static(__dirname + '/../build'))
 
-app.get('*', (req,res) => {
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'))
 })
 

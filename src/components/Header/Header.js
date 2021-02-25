@@ -6,7 +6,6 @@ import './Header.css'
 
 const Header = props => {
 
-
     const logout = () => {
         axios.get('/api/logout')
             .then(() => {

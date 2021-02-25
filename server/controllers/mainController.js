@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs')
 module.exports = {
     
     // User Controllers
@@ -10,14 +11,16 @@ module.exports = {
             .catch(err => res.status(500).send(err))
     },
 
-    // updatePassword: (req, res) => {
-    //     const { id } = req.params
-    //     const { password } = req.body
-    //     const db = req.app.get('db')
-    //     db.user.edit_({ id, password })
-    //         .then(([user ])=> res.status(200).send(user))
-    //         .catch(err => res.status(500).send(err))
-    // },
+    updatePassword: (req,res) => {
+        const { id } = req.params
+        const {password} = req.body
+        const db = req.app.get('db')
+        let salt = bcrypt.genSaltSync(10)
+        const hash = bcrypt.hashSync(password, salt)
+        db.user.edit_password({ id, hash })
+        .then(([user])=> res.status(200).send(user))
+        .catch(err => res.status(500).send(err))
+    },
 
     updateEmail: (req, res) => {
         const { id } = req.params
