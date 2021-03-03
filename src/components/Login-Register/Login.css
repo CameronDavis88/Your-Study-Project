@@ -79,11 +79,6 @@
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
-::-moz-placeholder {
-  color: white;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-}
-
 :-ms-input-placeholder {
   color: white;
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
@@ -102,7 +97,7 @@
 .login-here-text {
   font-size: 40px;
   color: white;
-  border-radius: 1px white solid;
+  border-radius: 1px  white solid;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -141,51 +136,43 @@ button {
   .authentication-info {
     margin: 0px 0px 175px 0px;
   }
-
   .input-class {
     font-size: 35px;
     text-align: center;
   }
-
   .login-here-text {
     font-size: 50px;
     margin-bottom: 20px;
   }
-
   p {
     font-size: 30px;
     margin-top: 125px;
   }
-
   button {
     font-size: xx-large;
   }
 }
+
 @media (max-width: 450px) {
   .authentication-info {
     margin: 0px 0px 0px 0px;
   }
-
   .input-class {
     font-size: 30px;
     text-align: center;
   }
-
   .login-here-text {
     font-size: 40px;
     margin-bottom: 20px;
   }
-
   p {
     font-size: 25px;
     margin-top: 60px;
     background-color: #3a3434;
   }
-
   button {
     font-size: x-large;
   }
-
   .login-page {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -197,14 +184,13 @@ button {
         -ms-flex-align: baseline;
             align-items: baseline;
   }
-
   .enter {
     margin-top: 0px;
     font-size: 45px;
     word-wrap: normal;
   }
-
   .login-page {
     padding-top: 90px;
   }
-}/*# sourceMappingURL=Login.css.map */
+}
+/*# sourceMappingURL=Login.css.map */

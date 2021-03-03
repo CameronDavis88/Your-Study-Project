@@ -31,7 +31,7 @@ const Journal = props => {
     }
 
     const loggedinView = () => {
-        if(!props.user.user_id){
+        if (!props.user.user_id) {
             props.history.push('/')
         }
     }
@@ -68,10 +68,14 @@ const Journal = props => {
                         <>
                             <div className='entry-input-box'>
                                 <div className='title-box' >
-                                <h2 className='journal-title'>New Entry</h2>
+                                    <h2 className='journal-title'>New Entry</h2>
                                 </div>
                                 <button onClick={addViewFalse}>Return to Journal</button>
-                                <input type='text' className='entry-input-text' value={entry}
+                                <textarea
+                                    rows='5'
+                                    cols='100'
+                                    className='entry-input-text'
+                                    value={entry}
                                     onChange={e => setEntry(e.target.value)} />
                                 <button onClick={createEntry} >Add Entry</button>
                             </div>
@@ -80,7 +84,7 @@ const Journal = props => {
                     :
                     <main>
                         <div className='title-box' >
-                        <h2 className='journal-title'>Your Journal</h2>
+                            <h2 className='journal-title'>Your Journal</h2>
                         </div>
                         <button className='add-view' onClick={addViewTrue}>Add New Entry</button>
                         {mappedJournal}

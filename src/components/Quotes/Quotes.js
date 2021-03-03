@@ -66,11 +66,16 @@ const Quotes = props => {
                     ? (
                         <>
                             <div className='quote-input-box'>
-                            <div className='title-box' >
-                                <h2 className='quotes-title'>New Note</h2>
+                                <div className='title-box' >
+                                    <h2 className='quotes-title'>New Note</h2>
                                 </div>
                                 <button onClick={addViewFalse}>Return to Quotes</button>
-                                <input type='text' className='quote-input-text' value={quote}
+                                <textarea
+                                    rows='5'
+                                    cols='100'
+                                    type='text'
+                                    className='quote-input-text'
+                                    value={quote}
                                     onChange={e => setQuote(e.target.value)} />
                                 <button onClick={createQuote} >Add Quote</button>
                             </div>
@@ -79,7 +84,7 @@ const Quotes = props => {
                     :
                     <main>
                         <div className='title-box' >
-                        <h2 className='quotes-title'>Your Quotes</h2>
+                            <h2 className='quotes-title'>Your Quotes</h2>
                         </div>
                         <button className='add-view' onClick={addViewTrue}>Add New Quote</button>
                         {mappedQuotes}

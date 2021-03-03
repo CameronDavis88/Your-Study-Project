@@ -31,12 +31,16 @@ const Quote = props => {
 
     return (
         <div className='quote-container'>
-            <input value={quote} className='editing-text-input' 
-            onChange={e => setQuote(e.target.value)} /> 
-            <div className='button-div'>       
-            <button onClick={updateQuote}>Update Quote</button>
-            <button onClick={deleteQuote}>Delete Quote</button>
-            </div>  
+            <textarea
+                rows='5'
+                cols='100'
+                value={quote}
+                className='editing-text-input'
+                onChange={e => setQuote(e.target.value)} />
+            <div className='button-div'>
+                <button onClick={updateQuote}>Update Quote</button>
+                <button onClick={deleteQuote}>Delete Quote</button>
+            </div>
         </div>
     )
 }

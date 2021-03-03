@@ -30,12 +30,16 @@ const Entry = props => {
 
     return (
         <div className='entry-container'>
-            <input value={entry} className='editing-text-input' 
-            onChange={e => setEntry(e.target.value)} /> 
-            <div className='button-div'>       
-            <button onClick={updateEntry}>Update Entry</button>
-            <button onClick={deleteEntry}>Delete Entry</button>
-            </div>  
+            <textarea
+                rows='5'
+                cols='100'
+                value={entry}
+                className='editing-text-input'
+                onChange={e => setEntry(e.target.value)} />
+            <div className='button-div'>
+                <button onClick={updateEntry}>Update Entry</button>
+                <button onClick={deleteEntry}>Delete Entry</button>
+            </div>
         </div>
     )
 }

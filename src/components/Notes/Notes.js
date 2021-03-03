@@ -30,7 +30,7 @@ const Notes = props => {
             .catch(err => console.log(err))
     }
 
-   const loggedinView = () => {
+    const loggedinView = () => {
         if (!props.user.user_id) {
             props.history.push('/')
         }
@@ -63,23 +63,28 @@ const Notes = props => {
         <div className='notes-page'>
             <section className='content'>
                 {addView
-                    ? 
-                        <>
-                            <div className='note-input-box'>
-                                <div className='title-box' >
+                    ?
+                    <>
+                        <div className='note-input-box'>
+                            <div className='title-box' >
                                 <h2 className='notes-title'>New Note</h2>
-                                </div>
-                                <button onClick={addViewFalse}>Return to Notes</button>
-                                <input type='text' className='note-input-text' value={note}
-                                    onChange={e => setNote(e.target.value)} />
-                                <button onClick={createNote} >Add Note</button>
                             </div>
-                        </>
-                    
+                            <button onClick={addViewFalse}>Return to Notes</button>
+                            <textarea
+                                rows='5'
+                                cols='100'
+                                type='text'
+                                className='note-input-text'
+                                value={note}
+                                onChange={e => setNote(e.target.value)} />
+                            <button onClick={createNote} >Add Note</button>
+                        </div>
+                    </>
+
                     :
                     <main>
                         <div className='title-box' >
-                        <h2 className='notes-title'>Your Notes</h2>
+                            <h2 className='notes-title'>Your Notes</h2>
                         </div>
                         <button className='add-view' onClick={addViewTrue}>Add New Note</button>
                         {mappedNotes}

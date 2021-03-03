@@ -30,12 +30,16 @@ const Note = props => {
 
     return (
         <div className='note-container'>
-            <input value={note} className='editing-text-input' 
-            onChange={e => setNote(e.target.value)} /> 
-            <div className='button-div'>       
-            <button onClick={updateNote}>Update Note</button>
-            <button onClick={deleteNote}>Delete Note</button>
-            </div>  
+            <textarea
+                rows='5'
+                cols='100'
+                value={note}
+                className='editing-text-input'
+                onChange={e => setNote(e.target.value)} />
+            <div className='button-div'>
+                <button onClick={updateNote}>Update Note</button>
+                <button onClick={deleteNote}>Delete Note</button>
+            </div>
         </div>
     )
 }
