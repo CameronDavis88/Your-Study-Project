@@ -40,8 +40,7 @@ module.exports = {
         res.status(200).send(journal)
     },
     getJournal: async (req, res) => {
-        const {user_id} = req.session.user
-        const id = user_id
+        const {id} = req.params
         const db = req.app.get('db')
         const journal = await db.journal.get_journal({ id })
         res.status(200).send(journal)
