@@ -11,6 +11,8 @@
      position: relative;
     top: 10vh;
 }
+
+
 .enter{
     font-size: 60px;
    border-radius: 2px solid white;
@@ -62,6 +64,7 @@ p{
     font-size: larger;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     margin-top: 10px;
+    background-color: rgb(58, 52, 52);
 }
 span{
     cursor: pointer;
@@ -94,6 +97,7 @@ button{
     p{
         font-size: 30px;
         margin-top: 125px;
+        background-color: rgb(58, 52, 52);
     }
     button{
         font-size: xx-large;

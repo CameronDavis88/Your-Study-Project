@@ -47,7 +47,7 @@ h1 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 15vw;
+  width: 20vw;
 }
 
 .un-header-links {
@@ -64,81 +64,91 @@ h1 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 10vw;
+  width: 15vw;
 }
 
 @media (max-width: 900px) {
   h2 {
     font-size: 20px;
   }
+
   h1 {
     font-size: 35px;
   }
+
   .un-header-links {
     width: 50vw;
   }
+
   .header-links {
     width: 50vw;
   }
 }
-
 @media (max-width: 775px) {
   h2 {
     font-size: 30px;
   }
+
   h1 {
     font-size: 30px;
     margin-right: 20px;
     width: 20vw;
   }
+
   .un-header-links {
     margin-right: 0px;
     width: 25vw;
   }
+
   .header-links {
     width: 50vw;
   }
 }
-
 @media (max-width: 450px) {
   .header-box {
     padding: 0px 10px;
   }
+
   h2 {
     font-size: 17px;
   }
+
   h1 {
     font-size: 25px;
     margin-right: 10px;
     width: 15vw;
   }
+
   .un-header-links {
     margin-right: 0px;
     width: 25vw;
   }
+
   .header-links {
     width: 50vw;
   }
 }
-
 @media (max-width: 400px) {
   .header-box {
     padding: 0px 10px;
   }
+
   h2 {
     font-size: 17px;
   }
+
   h1 {
     font-size: 25px;
     margin-right: 5px;
     width: 15vw;
   }
+
   .un-header-links {
     margin-right: 0px;
     width: 30vw;
   }
+
   .header-links {
     width: 50vw;
   }
-}
-/*# sourceMappingURL=Header.css.map */
+}/*# sourceMappingURL=Header.css.map */

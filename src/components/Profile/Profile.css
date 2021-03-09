@@ -130,11 +130,11 @@ h3 {
 }
 
 .updating-box {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .finished {
-  margin-bottom: 70px;
+  margin-bottom: 100px;
 }
 
 button {
@@ -146,84 +146,101 @@ button {
     width: 100vw;
     margin-top: 40px;
   }
+
   .notes {
     margin-left: 50px;
     font-size: 35px;
   }
+
   .quotes {
     margin-right: 50px;
     font-size: 35px;
   }
+
   .journal {
     font-size: 35px;
     color: white;
   }
+
   .update {
-    font-size: 40px;
+    font-size: 35px;
     bottom: 110px;
   }
+
   .username {
     bottom: 115px;
     font-size: 60px;
   }
+
   .update-title {
     bottom: 40px;
     font-size: 60px;
     margin-left: 60px;
     margin-bottom: 60px;
   }
+
   .inputs {
     font-size: 35px;
     text-align: center;
   }
+
   .updating-box {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
   }
+
   .finished {
-    margin-bottom: 130px;
+    margin-bottom: 190px;
+    font-size: 35px;
   }
 }
-
 @media (max-width: 450px) {
   .link-box {
     margin-top: 20px;
     margin-bottom: 120px;
   }
+
   .notes {
     margin-left: 10px;
     font-size: 35px;
   }
+
   .quotes {
     margin-right: 10px;
     font-size: 35px;
   }
+
   .journal {
     font-size: 35px;
     color: white;
   }
+
   .update {
     font-size: 30px;
     bottom: 110px;
     margin: 0px 0px 0px 0px;
   }
+
   .username {
     bottom: 115px;
     font-size: 40px;
   }
+
   .update-title {
     bottom: 40px;
     font-size: 40px;
     margin-left: 60px;
     margin-bottom: 0px;
   }
+
   .inputs {
     font-size: 25px;
   }
+
   .updating-box {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
   }
+
   .finished {
-    margin-bottom: 185px;
+    margin-bottom: 225px;
   }
-}
-/*# sourceMappingURL=Profile.css.map */
+}/*# sourceMappingURL=Profile.css.map */

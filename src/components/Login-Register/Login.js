@@ -101,6 +101,7 @@ class Login extends Component {
                             <p>Don't have an account? <span onClick={this.handleToggle}>Register here</span></p>
                         </>
                     }
+
                 </section>
             </div>
         )

@@ -120,20 +120,25 @@ class Profile extends Component {
                                             onChange={e => this.handleInput(e)} />
                                         <button onClick={this.editEmail}>Update</button>
                                     </div>
+
+                                    <input
+                                        value={this.state.password}
+                                        className='inputs'
+                                        name='password'
+                                        type='password'
+                                        placeholder='Password'
+                                        onChange={e => this.handleInput(e)} />
+                                    <button onClick={this.editPassword}>Update</button>
+                                    <h1></h1>
+                                  
+                                    <input
+                                        value={this.state.verPassword}
+                                        className='inputs'
+                                        name='verPassword'
+                                        type='password'
+                                        placeholder='Verify Password'
+                                        onChange={e => this.handleInput(e)} />
                                 </section>
-                                <input
-                                    value={this.state.password}
-                                    name='password'
-                                    type='password'
-                                    placeholder='Password'
-                                    onChange={e => this.handleInput(e)} />
-                                <input
-                                    value={this.state.verPassword}
-                                    name='verPassword'
-                                    type='password'
-                                    placeholder='Verify Password'
-                                    onChange={e => this.handleInput(e)} />
-                                <button onClick={this.editPassword}>Update Password</button>
                                 <button onClick={this.homeView} className='finished'>Finished Updating</button>
                             </>
                         )
