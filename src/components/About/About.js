@@ -7,7 +7,9 @@ class About extends Component {
         return (
             <div className='about-page'>
                 <span className='about-title'>About Your Study</span>
-                <p className='about-content'>Content: Describing the purpose and use of the site</p>
+                <main about-box>
+                <p className='about-content'>Your Study is a place to organize and store your personal note and journal entries, as well as some of your favorite quotes.</p>
+                </main>
             </div>
         )
     }
