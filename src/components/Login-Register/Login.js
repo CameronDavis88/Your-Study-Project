@@ -59,7 +59,9 @@ class Login extends Component {
         return (
             <div className='login-page'>
                 <section className='authentication-info'>
+                    <div enter-box>
                     <h1 className='enter'>Enter Your Study</h1>
+                    </div>
                     {this.state.registerView
                         ?
                         <>

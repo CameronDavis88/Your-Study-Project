@@ -125,4 +125,11 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}/*# sourceMappingURL=Journal.css.map */
+}
+
+@media (max-width: 775px) {
+  .entry-input-text {
+    font-size: 50px;
+  }
+}
+/*# sourceMappingURL=Journal.css.map */
