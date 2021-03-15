@@ -152,6 +152,7 @@ button{
         word-wrap: normal;
         justify-content: center;
         align-items: center;
+        margin-right: 50px;
       
     }
     .login-page{
