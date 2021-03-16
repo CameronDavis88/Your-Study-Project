@@ -1,45 +1,30 @@
 .home-page {
   background: url("https://www.pixelstalk.net/wp-content/uploads/2016/08/Library-Wallpaper-Free-Download.jpg") no-repeat center center fixed;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  display: flex;
+  box-sizing: border-box;
   background-size: cover;
   height: 85vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   z-index: 1;
   position: relative;
   top: 10vh;
 }
 
 .profile-display {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  align-items: center;
+  flex-direction: column;
 }
 
 h3 {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+ display: flex;
+ justify-content: center;
+ align-items: center;
 }
 
 .link-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
+ 
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -146,85 +131,102 @@ button {
     width: 100vw;
     margin-top: 40px;
   }
+
   .notes {
     margin-left: 50px;
     font-size: 35px;
   }
+
   .quotes {
     margin-right: 50px;
     font-size: 35px;
   }
+
   .journal {
     font-size: 35px;
     color: white;
   }
+
   .update {
     font-size: 35px;
     bottom: 110px;
   }
+
   .username {
     bottom: 115px;
     font-size: 60px;
   }
+
   .update-title {
     bottom: 40px;
     font-size: 60px;
     margin-left: 60px;
     margin-bottom: 60px;
   }
+
   .inputs {
     font-size: 35px;
     text-align: center;
   }
+
   .updating-box {
     margin-bottom: 30px;
   }
+
   .finished {
     margin-bottom: 190px;
     font-size: 35px;
   }
 }
-
 @media (max-width: 450px) {
   .link-box {
     margin-top: 20px;
     margin-bottom: 120px;
   }
+
   .notes {
     margin-left: 10px;
     font-size: 35px;
   }
+
   .quotes {
     margin-right: 10px;
     font-size: 35px;
   }
+
   .journal {
     font-size: 35px;
     color: white;
   }
+
   .update {
     font-size: 30px;
     bottom: 110px;
     margin: 0px 0px 0px 0px;
   }
+
   .username {
+    margin-top: 135px;
     bottom: 115px;
     font-size: 35px;
   }
+
   .update-title {
     bottom: 40px;
     font-size: 40px;
     margin-left: 60px;
     margin-bottom: 0px;
   }
+
   .inputs {
     font-size: 25px;
   }
+
   .updating-box {
     margin-bottom: 30px;
   }
+
   .finished {
     margin-bottom: 225px;
   }
 }
-/*# sourceMappingURL=Profile.css.map */
