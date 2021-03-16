@@ -109,7 +109,10 @@ button{
 }
 
 @media (max-width: 450px){
-  
+  .login-page{
+      height: fit-content;
+  }
+
     .authentication-info {
       margin: 0px 0px 0px 0px;
       display: flex;
@@ -152,7 +155,7 @@ button{
         word-wrap: normal;
         justify-content: center;
         align-items: center;
-        margin-right: 50px;
+        margin-right: 60px;
       
     }
     .login-page{
