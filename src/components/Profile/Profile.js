@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { getUser } from '../../ducks/reducer'
 import './Profile.css'
 
+
 class Profile extends Component {
     constructor(props) {
         super(props)
