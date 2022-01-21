@@ -1,54 +1,55 @@
-import axios from 'axios'
-import Entry from './Entry'
-import { connect } from 'react-redux'
-import { useState, useEffect } from 'react'
-import { getUser } from '../../ducks/reducer'
-import './Journal.css'
+import axios from 'axios';
+import Entry from './Entry';
+import { connect } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { getUser } from '../../ducks/reducer';
+import './Journal.css';
 
 const Journal = props => {
 
-    const [journal, setJournal] = useState([])
-    const [entry, setEntry] = useState('')
-    const [addView, setAddView] = useState(false)
+    const [journal, setJournal] = useState([]);
+    const [entry, setEntry] = useState('');
+    const [addView, setAddView] = useState(false);
 
     const getJournal = () => {
-        const id = props.user.user_id
+        const id = props.user.user_id;
         axios.get(`/api/journal/${id}`)
             .then(res => {
                 setJournal(res.data)
             })
-            .catch(err => console.log(err))
-    }
+            .catch(err => console.log(err));
+    };
+
     const createEntry = () => {
-        const id = props.user.user_id
+        const id = props.user.user_id;
         axios.post(`/api/entry/${id}`, { entry })
             .then(() => {
-                setEntry('')
-                getJournal()
-                addViewFalse()
+                setEntry('');
+                getJournal();
+                addViewFalse();
             })
-            .catch(err => console.log(err))
-    }
+            .catch(err => console.log(err));
+    };
 
     const loggedinView = () => {
         if (!props.user.user_id) {
             props.history.push('/')
-        }
-    }
+        };
+    };
 
 
     useEffect(() => {
-        getJournal()
-        loggedinView()
-    }, [])
+        getJournal();
+        loggedinView();
+    }, []);
 
     const addViewTrue = () => {
-        setAddView(true)
-    }
+        setAddView(true);
+    };
 
     const addViewFalse = () => {
-        setAddView(false)
-    }
+        setAddView(false);
+    };
 
     const mappedJournal = journal.map(entry => {
         return <Entry
@@ -57,15 +58,13 @@ const Journal = props => {
             getJournal={getJournal}
             className='entry'
         />
-    })
+    });
 
     return (
-
         <div className='journal-page'>
             <section className='content'>
                 {addView
                     ? (
-                        <>
                             <div className='entry-input-box'>
                                 <div className='title-box' >
                                     <h2 className='journal-title'>New Entry</h2>
@@ -79,9 +78,7 @@ const Journal = props => {
                                     onChange={e => setEntry(e.target.value)} />
                                 <button onClick={createEntry} >Add Entry</button>
                             </div>
-                        </>
-                    )
-                    :
+                    ) : (
                     <main>
                         <div className='title-box' >
                             <h2 className='journal-title'>Your Journal</h2>
@@ -89,11 +86,12 @@ const Journal = props => {
                         <button className='add-view' onClick={addViewTrue}>Add New Entry</button>
                         {mappedJournal}
                     </main>
+                    )
                 }
             </section>
         </div>
     )
-}
+};
 
 const mapStateToProps = reduxState => reduxState;
 

@@ -1,33 +1,31 @@
-import axios from 'axios'
-import { useState, useEffect } from 'react'
-import './Quote.css'
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import './Quote.css';
 
 const Quote = props => {
-
-    const [quote, setQuote] = useState(props.quote.quote)
-    // const [addView, setAddView] = useState(false)
+    const [quote, setQuote] = useState(props.quote.quote);
 
     const deleteQuote = () => {
-        const id = props.quote.quote_id
+        const id = props.quote.quote_id;
         axios.delete(`/api/quote/${id}`)
             .then(() => {
-                props.getQuotes()
+                props.getQuotes();
             })
-            .catch(err => console.log(err))
-    }
+            .catch(err => console.log(err));
+    };
 
     const updateQuote = () => {
-        const id = props.quote.quote_id
+        const id = props.quote.quote_id;
         axios.put(`/api/quote/${id}`, { quote })
             .then(() => {
-                alert('Quote Updated')
-                props.getQuotes()
+                alert('Quote Updated');
+                props.getQuotes();
             })
-            .catch(err => console.log(err))
-    }
+            .catch(err => console.log(err));
+    };
 
     useEffect(() => {
-    }, [])
+    }, []);
 
     return (
         <div className='quote-container'>
@@ -43,5 +41,6 @@ const Quote = props => {
             </div>
         </div>
     )
-}
-export default Quote
+};
+
+export default Quote;

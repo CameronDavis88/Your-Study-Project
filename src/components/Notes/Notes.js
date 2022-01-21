@@ -1,53 +1,53 @@
-import axios from 'axios'
-import Note from './Note'
-import { connect } from 'react-redux'
-import { useState, useEffect } from 'react'
-import { getUser } from '../../ducks/reducer'
-import './Notes.css'
+import axios from 'axios';
+import Note from './Note';
+import { connect } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { getUser } from '../../ducks/reducer';
+import './Notes.css';
 
 const Notes = props => {
-    const [notes, setNotes] = useState([])
-    const [note, setNote] = useState('')
-    const [addView, setAddView] = useState(false)
+    const [notes, setNotes] = useState([]);
+    const [note, setNote] = useState('');
+    const [addView, setAddView] = useState(false);
 
     const getNotes = () => {
-        const id = props.user.user_id
+        const id = props.user.user_id;
         axios.get(`/api/notes/${id}`)
             .then(res => {
-                setNotes(res.data)
+                setNotes(res.data);
             })
-            .catch(err => console.log(err))
-    }
+            .catch(err => console.log(err));
+    };
 
     const createNote = () => {
-        const id = props.user.user_id
+        const id = props.user.user_id;
         axios.post(`/api/note/${id}`, { note })
             .then(() => {
-                setNote('')
-                getNotes()
-                addViewFalse()
+                setNote('');
+                getNotes();
+                addViewFalse();
             })
-            .catch(err => console.log(err))
-    }
+            .catch(err => console.log(err));
+    };
 
     const loggedinView = () => {
         if (!props.user.user_id) {
             props.history.push('/')
-        }
-    }
+        };
+    };
 
     useEffect(() => {
-        loggedinView()
-        getNotes()
-    }, [])
+        loggedinView();
+        getNotes();
+    }, []);
 
     const addViewTrue = () => {
-        setAddView(true)
-    }
+        setAddView(true);
+    };
 
     const addViewFalse = () => {
-        setAddView(false)
-    }
+        setAddView(false);
+    };
 
     const mappedNotes = notes.map(note => {
         return <Note
@@ -56,15 +56,13 @@ const Notes = props => {
             getNotes={getNotes}
             className='note'
         />
-    })
+    });
 
     return (
-
         <div className='notes-page'>
             <section className='content'>
                 {addView
-                    ?
-                    <>
+                    ? (
                         <div className='note-input-box'>
                             <div className='title-box' >
                                 <h2 className='notes-title'>New Note</h2>
@@ -79,9 +77,7 @@ const Notes = props => {
                                 onChange={e => setNote(e.target.value)} />
                             <button onClick={createNote} >Add Note</button>
                         </div>
-                    </>
-
-                    :
+                     ) : (
                     <main>
                         <div className='title-box' >
                             <h2 className='notes-title'>Your Notes</h2>
@@ -89,11 +85,12 @@ const Notes = props => {
                         <button className='add-view' onClick={addViewTrue}>Add New Note</button>
                         {mappedNotes}
                     </main>
+                     )
                 }
             </section>
         </div>
     )
-}
+};
 
 const mapStateToProps = reduxState => reduxState;
 

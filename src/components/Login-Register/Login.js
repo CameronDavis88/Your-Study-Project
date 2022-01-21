@@ -1,8 +1,8 @@
-import { Component } from 'react'
-import axios from 'axios'
-import { connect } from 'react-redux'
-import { getUser } from '..//../ducks/reducer'
-import './Login.css'
+import { Component } from 'react';
+import axios from 'axios';
+import { connect } from 'react-redux';
+import { getUser } from '..//../ducks/reducer';
+import './Login.css';
 
 
 class Login extends Component {
@@ -19,14 +19,14 @@ class Login extends Component {
 
     handleInput = (event) => {
         this.setState({ [event.target.name]: event.target.value })
-    }
+    };
 
     handleToggle = () => {
         this.setState({ registerView: !this.state.registerView })
-    }
+    };
 
     handleRegister = () => {
-        const { username, email, password, verPassword } = this.state
+        const { username, email, password, verPassword } = this.state;
 
         if (password && password === verPassword) {
             axios.post('/api/register', { username, email, password })
@@ -34,14 +34,14 @@ class Login extends Component {
                     this.props.getUser(res.data)
                     this.props.history.push('/profile')
                 })
-                .catch(err => console.log(err))
+                .catch(err => console.log(err));
         } else {
-            alert("Passwords don't match")
-        }
-    }
+            alert("Passwords don't match");
+        };
+    };
 
     handleLogin = () => {
-        const { email, password } = this.state
+        const { email, password } = this.state;
 
         axios.post('/api/login', { email, password })
             .then(res => {
@@ -52,8 +52,8 @@ class Login extends Component {
                 alert('Username or Password not found, please try again'),
                 this.setState({ email: '' }),
                 this.setState({ password: '' })
-            )
-    }
+            );
+    };
 
 
     render() {
@@ -64,7 +64,7 @@ class Login extends Component {
                     <h1 className='enter'>Enter Your Study</h1>
                     </div>
                     {this.state.registerView
-                        ?
+                        ? (
                         <>
                             <h3 className='login-here-text' >Register Here</h3>
                             <input className='input-class'
@@ -73,7 +73,7 @@ class Login extends Component {
                                 placeholder='Username'
                                 onChange={e => this.handleInput(e)} />
                         </>
-                        :
+                         ) : 
                         <h3 className='login-here-text'>Login Here</h3>}
                     <input className='input-class'
                         value={this.state.email}
@@ -87,7 +87,7 @@ class Login extends Component {
                         placeholder='Password'
                         onChange={e => this.handleInput(e)} />
                     {this.state.registerView
-                        ?
+                        ? (
                         <>
                             <input className='input-class'
                                 value={this.state.verPassword}
@@ -98,17 +98,17 @@ class Login extends Component {
                             <button onClick={this.handleRegister}>Register</button>
                             <p>Have an account? <span onClick={this.handleToggle}>Login here</span></p>
                         </>
-                        :
-                        <>
-                            <button onClick={this.handleLogin}>Login</button>
-                            <p>Don't have an account? <span onClick={this.handleToggle}>Register here</span></p>
-                        </>
+                         ) : (
+                            <>
+                                <button onClick={this.handleLogin}>Login</button>
+                                <p>Don't have an account? <span onClick={this.handleToggle}>Register here</span></p>
+                            </>
+                         )
                     }
-
                 </section>
             </div>
         )
     }
 }
 
-export default connect(null, { getUser })(Login)
+export default connect(null, { getUser })(Login);

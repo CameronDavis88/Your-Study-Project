@@ -1,32 +1,32 @@
-import axios from 'axios'
-import { useState, useEffect } from 'react'
-import './Note.css'
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import './Note.css';
 
 const Note = props => {
 
-    const [note, setNote] = useState(props.note.note)
+    const [note, setNote] = useState(props.note.note);
 
     const deleteNote = () => {
-        const id = props.note.note_id
+        const id = props.note.note_id;
         axios.delete(`/api/note/${id}`)
             .then(() => {
-                props.getNotes()
+                props.getNotes();
             })
-            .catch(err => console.log(err))
-    }
+            .catch(err => console.log(err));
+    };
 
     const updateNote = () => {
-        const id = props.note.note_id
+        const id = props.note.note_id;
         axios.put(`/api/note/${id}`, { note })
             .then(() => {
-                alert('Note Updated')
-                props.getNotes()
+                alert('Note Updated');
+                props.getNotes();
             })
-            .catch(err => console.log(err))
-    }
+            .catch(err => console.log(err));
+    };
 
     useEffect(() => {
-    }, [])
+    }, []);
 
     return (
         <div className='note-container'>
@@ -43,5 +43,6 @@ const Note = props => {
         </div>
     )
 }
-export default Note
+
+export default Note;
 

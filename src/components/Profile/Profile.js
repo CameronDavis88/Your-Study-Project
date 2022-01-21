@@ -1,14 +1,14 @@
-import { Component } from 'react'
-import axios from 'axios'
-import { withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { getUser } from '../../ducks/reducer'
-import './Profile.css'
+import { Component } from 'react';
+import axios from 'axios';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getUser } from '../../ducks/reducer';
+import './Profile.css';
 
 
 class Profile extends Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         const { username, email, password } = this.props.user
         this.state = {
@@ -18,81 +18,81 @@ class Profile extends Component {
             verPassword: '',
             editingView: false
 
-        }
-    }
+        };
+    };
 
     loggedinView = () => {
         if (!this.props.user.user_id) {
-            this.props.history.push('/')
-        }
-    }
+            this.props.history.push('/');
+        };
+    };
 
     componentDidMount() {
-        this.loggedinView()
-        getUser()
-    }
+        this.loggedinView();
+        getUser();
+    };
 
     editView = () => {
-        this.setState({ editingView: true })
-    }
+        this.setState({ editingView: true });
+    };
 
     homeView = () => {
-        this.setState({ editingView: false })
-    }
+        this.setState({ editingView: false });
+    };
 
     handleInput = (event) => {
-        this.setState({ [event.target.name]: event.target.value })
-    }
+        this.setState({ [event.target.name]: event.target.value });
+    };
 
     editUsername = () => {
-        const id = this.props.user.user_id
-        const username = this.state.username
+        const id = this.props.user.user_id;
+        const username = this.state.username;
         axios.put(`/api/user/${id}`, { username })
             .then(res => {
-                this.setState({ username: res.data.username })
-                alert('Username Updated')
+                this.setState({ username: res.data.username });
+                alert('Username Updated');
             })
             .catch(err => console.log(err));
-    }
+    };
 
     editPassword = () => {
-        const id = this.props.user.user_id
-        const { password, verPassword } = this.state
+        const id = this.props.user.user_id;
+        const { password, verPassword } = this.state;
 
         if (password && password === verPassword) {
             axios.put(`/api/user_password/${id}`, { password })
                 .then(res => {
-                    this.setState({ password: res.data.password })
-                    alert('Password Updated')
+                    this.setState({ password: res.data.password });
+                    alert('Password Updated');
                 })
-                .catch(err => console.log(err))
+                .catch(err => console.log(err));
         } else {
-            alert("Passwords don't match")
-        }
-    }
+            alert("Passwords don't match");
+        };
+    };
 
     editEmail = () => {
-        const id = this.props.user.user_id
-        const email = this.state.email
+        const id = this.props.user.user_id;
+        const email = this.state.email;
         axios.put(`/api/user_email/${id}`, { email })
             .then(res => {
-                this.setState({ email: res.data.email })
-                alert('Email Updated')
+                this.setState({ email: res.data.email });
+                alert('Email Updated');
             })
             .catch(err => console.log(err));
-    }
+    };
 
     toJournal = () => {
-        this.props.history.push('/journal')
-    }
+        this.props.history.push('/journal');
+    };
 
     toNotes = () => {
-        this.props.history.push('/notes')
-    }
+        this.props.history.push('/notes');
+    };
 
     toQuotes = () => {
-        this.props.history.push('/quotes')
-    }
+        this.props.history.push('/quotes');
+    };
 
     render() {
         return (
@@ -121,7 +121,6 @@ class Profile extends Component {
                                             onChange={e => this.handleInput(e)} />
                                         <button onClick={this.editEmail}>Update</button>
                                     </div>
-
                                     <input
                                         value={this.state.password}
                                         className='inputs'
@@ -131,7 +130,6 @@ class Profile extends Component {
                                         onChange={e => this.handleInput(e)} />
                                     <button onClick={this.editPassword}>Update</button>
                                     <h1></h1>
-                                  
                                     <input
                                         value={this.state.verPassword}
                                         className='inputs'
@@ -142,8 +140,8 @@ class Profile extends Component {
                                 </section>
                                 <button onClick={this.homeView} className='finished'>Finished Updating</button>
                             </>
-                        )
-                        : <div className='profile-display'>
+                        ) : (
+                        <div className='profile-display'>
                             <div className='user-update'>
                                 <div className='title-box' >
                                     <h2 className='username'>Welcome to Your Desk</h2>
@@ -158,12 +156,13 @@ class Profile extends Component {
                                 <h2 className='quotes' onClick={this.toQuotes}>Quotes</h2>
                             </div>
                         </div>
+                        )
                     }
                 </section>
             </div>
         )
     }
-}
+};
 
 const mapStateToProps = reduxState => reduxState;
 

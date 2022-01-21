@@ -1,53 +1,53 @@
-import axios from 'axios'
-import { connect } from 'react-redux'
-import { useState, useEffect } from 'react'
-import { getUser } from '../../ducks/reducer'
-import Quote from './Quote'
-import './Quotes.css'
+import axios from 'axios';
+import { connect } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { getUser } from '../../ducks/reducer';
+import Quote from './Quote';
+import './Quotes.css';
 
 const Quotes = props => {
-    const [quotes, setQuotes] = useState([])
-    const [quote, setQuote] = useState('')
-    const [addView, setAddView] = useState(false)
+    const [quotes, setQuotes] = useState([]);
+    const [quote, setQuote] = useState('');
+    const [addView, setAddView] = useState(false);
 
     const getQuotes = () => {
-        const id = props.user.user_id
+        const id = props.user.user_id;
         axios.get(`/api/quotes/${id}`)
             .then(res => {
-                setQuotes(res.data)
+                setQuotes(res.data);
             })
-            .catch(err => console.log(err))
-    }
+            .catch(err => console.log(err));
+    };
 
     const createQuote = () => {
-        const id = props.user.user_id
+        const id = props.user.user_id;
         axios.post(`/api/quote/${id}`, { quote })
             .then(() => {
-                setQuote('')
-                getQuotes()
-                addViewFalse()
+                setQuote('');
+                getQuotes();
+                addViewFalse();
             })
-            .catch(err => console.log(err))
-    }
+            .catch(err => console.log(err));
+    };
 
     const loggedinView = () => {
         if (!props.user.user_id) {
-            props.history.push('/')
-        }
-    }
+            props.history.push('/');
+        };
+    };
 
     useEffect(() => {
-        loggedinView()
-        getQuotes()
-    }, [])
+        loggedinView();
+        getQuotes();
+    }, []);
 
     const addViewTrue = () => {
-        setAddView(true)
-    }
+        setAddView(true);
+    };
 
     const addViewFalse = () => {
-        setAddView(false)
-    }
+        setAddView(false);
+    };
 
     const mappedQuotes = quotes.map(quote => {
         return <Quote
@@ -56,7 +56,8 @@ const Quotes = props => {
             getQuotes={getQuotes}
             className='quote'
         />
-    })
+        }
+    );
 
     return (
 
@@ -80,8 +81,7 @@ const Quotes = props => {
                                 <button onClick={createQuote} >Add Quote</button>
                             </div>
                         </>
-                    )
-                    :
+                    ) : (
                     <main>
                         <div className='title-box' >
                             <h2 className='quotes-title'>Your Quotes</h2>
@@ -89,11 +89,12 @@ const Quotes = props => {
                         <button className='add-view' onClick={addViewTrue}>Add New Quote</button>
                         {mappedQuotes}
                     </main>
+                    )
                 }
             </section>
         </div>
     )
-}
+};
 
 const mapStateToProps = reduxState => reduxState;
 

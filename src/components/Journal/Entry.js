@@ -1,32 +1,32 @@
-import axios from 'axios'
-import { useState, useEffect } from 'react'
-import './Entry.css'
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import './Entry.css';
 
 const Entry = props => {
 
-    const [entry, setEntry] = useState(props.entry.entry)
+    const [entry, setEntry] = useState(props.entry.entry);
 
     const deleteEntry = () => {
-        const id = props.entry.entry_id
+        const id = props.entry.entry_id;
         axios.delete(`/api/entry/${id}`)
             .then(() => {
                 props.getJournal()
             })
-            .catch(err => console.log(err))
-    }
+            .catch(err => console.log(err));
+    };
 
     const updateEntry = () => {
-        const id = props.entry.entry_id
+        const id = props.entry.entry_id;
         axios.put(`/api/entry/${id}`, { entry })
             .then(() => {
                 alert('Entry Updated')
                 props.getJournal()
             })
-            .catch(err => console.log(err))
-    }
+            .catch(err => console.log(err));
+    };
 
     useEffect(() => {
-    }, [])
+    }, []);
 
     return (
         <div className='entry-container'>
@@ -42,6 +42,7 @@ const Entry = props => {
             </div>
         </div>
     )
-}
-export default Entry
+};
+
+export default Entry;
 

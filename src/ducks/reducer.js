@@ -1,6 +1,6 @@
 const initialState = {
     user: {}
-}
+};
 
 const GET_USER = 'GET_USER';
 const CLEAR_USER = 'CLEAR_USER';
