@@ -3,7 +3,7 @@
   height: 10vh;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background: url("https://i.pinimg.com/originals/d0/67/5e/d0675e75e10ac79ff8af6245eb4d804b.jpg") no-repeat center;
+  background: url("../../images/header-image.jpg") no-repeat center;
   background-size: cover;
   display: -webkit-box;
   display: -ms-flexbox;

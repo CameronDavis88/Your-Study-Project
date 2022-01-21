@@ -4,8 +4,6 @@
 
 
 
-
-
 ## Frontend Packages
 *  React - Front end JavaScript Library
 *  redux - State Management
