@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 // import '../../styles/About'
-import './About.css'
+import './About.css';
 
 class About extends Component {
     render() {
@@ -15,4 +15,4 @@ class About extends Component {
     }
 }
 
-export default About
+export default About;

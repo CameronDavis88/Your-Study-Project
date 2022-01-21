@@ -1,6 +1,5 @@
 const bcrypt = require('bcryptjs');
 module.exports = {
-    
     // User Controllers
     updateUsername: (req, res) => {
         const { id } = req.params;
@@ -112,4 +111,4 @@ module.exports = {
         const quotes = await db.quotes.edit_quote({ id, quote });
         res.status(200).send(quotes);
     }
-}
+};

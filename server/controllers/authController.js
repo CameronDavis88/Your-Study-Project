@@ -7,7 +7,7 @@ module.exports = {
         const [foundUser] = await db.user.get_user({ email })
         if(foundUser){
             return res.status(400).send('Email already in use');
-        }
+        };
         let salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(password, salt);
         const [newUser] = await db.user.add_user({ username, email, hash });
@@ -21,11 +21,11 @@ module.exports = {
         const [foundUser] = await db.user.get_user({ email })
         if(!foundUser){
             return res.status(400).send('Email not found');
-        }
+        };
         const authenticated = bcrypt.compareSync(password, foundUser.password)
         if(!authenticated){
             return res.status(401).send('Password is incorrect');
-        }
+        };
         delete foundUser.password;
         req.session.user = foundUser;
         res.status(202).send(req.session.user);
@@ -33,5 +33,5 @@ module.exports = {
     logout: (req, res) => {
         req.session.destroy();
         res.sendStatus(200);
-    }
-}
+    },
+};
