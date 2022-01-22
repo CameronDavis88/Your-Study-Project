@@ -84,7 +84,7 @@ button {
 }
 
 @media (max-width: 775px) {
-    .authentication-info {
+    .authentication-info1 {
         margin: 0px 0px 175px 0px;
     }
     .input-class {
@@ -96,9 +96,8 @@ button {
         margin-bottom: 20px;
     }
     p {
-        font-size: 30px;
+        font-size: 25px;
         margin-top: 125px;
-        background-color: rgb(58, 52, 52);
     }
     button {
         font-size: xx-large;
@@ -124,7 +123,6 @@ button {
     p {
         font-size: 25px;
         margin-top: 60px;
-        background-color: rgb(58, 52, 52);
     }
     button {
         font-size: x-large;

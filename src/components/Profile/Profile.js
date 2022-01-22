@@ -101,8 +101,9 @@ class Profile extends Component {
                     {this.state.editingView
                         ? (
                             <>
+                                <h3 className='update-title'>Update Your Info</h3>
                                 <section className='updating-box'>
-                                    <h3 className='update-title'>Update Your Info</h3>
+
                                     <div className='update-username-box'>
                                         <input
                                             className='inputs'
@@ -141,22 +142,22 @@ class Profile extends Component {
                                 <button onClick={this.homeView} className='finished'>Finished Updating</button>
                             </>
                         ) : (
-                        <div className='profile-display'>
-                            {/* <div className='welcome-box' ></div> */}
-                            <div className='user-update'>
-                                <div className='title-box' >
-                                    <h2 className='username'>Welcome to Your Desk</h2>
+                            <div className='profile-display'>
+                                {/* <div className='welcome-box' ></div> */}
+                                <div className='user-update'>
+                                    <div className='title-box' >
+                                        <h2 className='username'>Welcome to Your Desk</h2>
+                                    </div>
+                                    <div className='title-box' >
+                                        <h3 onClick={this.editView} className='update'>update your information here</h3>
+                                    </div>
                                 </div>
-                                <div className='title-box' >
-                                    <h3 onClick={this.editView} className='update'>-update your info here-</h3>
+                                <div className='link-box'>
+                                    <h2 className='notes' onClick={this.toNotes} >Notes</h2>
+                                    <h2 className='journal' onClick={this.toJournal}>Journal</h2>
+                                    <h2 className='quotes' onClick={this.toQuotes}>Quotes</h2>
                                 </div>
                             </div>
-                            <div className='link-box'>
-                                <h2 className='notes' onClick={this.toNotes} >Notes</h2>
-                                <h2 className='journal' onClick={this.toJournal}>Journal</h2>
-                                <h2 className='quotes' onClick={this.toQuotes}>Quotes</h2>
-                            </div>
-                        </div>
                         )
                     }
                 </section>

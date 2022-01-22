@@ -64,28 +64,28 @@ const Journal = props => {
             <section className='content'>
                 {addView
                     ? (
-                            <div className='entry-input-box'>
-                                <div className='title-box' >
-                                    <h2 className='journal-title'>New Entry</h2>
-                                </div>
-                                <button onClick={addViewFalse}>Return to Journal</button>
-                                <textarea
-                                    rows='5'
-                                    cols='100'
-                                    className='entry-input-text'
-                                    value={entry}
-                                    onChange={e => setEntry(e.target.value)} />
-                                <button onClick={createEntry} >Add Entry</button>
+                        <div className='entry-input-box'>
+                            <div className='title-box' >
+                                <h2 className='journal-title'>New Entry</h2>
                             </div>
-                    ) : (
-                    <main>
-                        <div className='title-box' >
-                            <h2 className='journal-title'>Your Journal</h2>
+                            <button onClick={addViewFalse}>Return to Journal</button>
+                            <textarea
+                                rows='5'
+                                cols='100'
+                                className='entry-input-text'
+                                value={entry}
+                                onChange={e => setEntry(e.target.value)} />
+                            <button onClick={createEntry} >Add Entry</button>
                         </div>
-                        <button className='add-view' onClick={() => props.history.push('/profile')}>Back to Desk</button>
-                        <button className='add-view' onClick={addViewTrue}>Add New Entry</button>
-                        {mappedJournal}
-                    </main>
+                    ) : (
+                        <main>
+                            <div className='title-box' >
+                                <h2 className='journal-title'>Your Journal</h2>
+                            </div>
+                            <button className='add-view' onClick={() => props.history.push('/profile')}>Back to Desk</button>
+                            <button className='add-view' onClick={addViewTrue}>Add New Entry</button>
+                            {mappedJournal}
+                        </main>
                     )
                 }
             </section>

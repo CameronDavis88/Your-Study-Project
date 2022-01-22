@@ -1,9 +1,7 @@
 .about-page {
-    background:
-    url('../../images/about-background.jpg')
-     no-repeat center center fixed;
+    background: url("../../images/about-background.jpg") no-repeat center center fixed;
     box-sizing: border-box;
-    background-size: cover; 
+    background-size: cover;
     height: 85vh;
     display: flex;
     justify-content: center;
@@ -12,59 +10,55 @@
     position: relative;
     top: 10vh;
     flex-direction: column;
-} 
- .about-title{
+}
+.about-title {
     position: relative;
     bottom: 115px;
     font-size: 45px;
-    color:white;
-    background-color: rgba(0,0,0,.3);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
     color: #fff;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
-.about-box{
+.about-box {
     display: flex;
     box-sizing: border-box;
     justify-content: center;
     align-items: center;
     width: 40%;
-    background-color: rgba(0,0,0,.3);
+    background-color: rgba(0, 0, 0, 0.3);
     color: #fff;
 }
-.about-content{
+.about-content {
     box-sizing: border-box;
     justify-content: center;
-    align-items: center; 
-    background-color:rgba(0, 0, 0, 0); 
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0);
     border-radius: 1px;
-    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000; 
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     font-size: 30px;
     color: white;
     word-wrap: normal;
     text-align: center;
-    
-} 
-
-@media(max-width: 775px){
-    .about-box{
-        display: flex;
-      width: 80%;
-      margin: 0px 10px;
-      padding: 0px 10px;
-      justify-content: center;
-      align-items: center;
-    }
-    .about-content{
-       font-size: 30px;
-    } 
-
 }
 
-@media (max-width: 450px){
- 
-    .about-content{
-         margin: 0px 10px 0px 10px;
-      padding: 0px 10px 0px 10px; 
-    
-    } 
+@media (max-width: 775px) {
+    .about-box {
+        display: flex;
+        width: 80%;
+        margin: 0px 10px;
+        padding: 0px 10px;
+        justify-content: center;
+        align-items: center;
+    }
+    .about-content {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 450px) {
+    .about-content {
+        margin: 0px 10px 0px 10px;
+        padding: 0px 10px 0px 10px;
+    }
 }

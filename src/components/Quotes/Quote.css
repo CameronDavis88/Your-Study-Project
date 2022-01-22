@@ -1,13 +1,13 @@
-.quote-container{
+.quote-container {
     display: flex;
     flex-direction: column;
     height: fit-content;
     width: fit-content;
 }
-.editing-text-input{
+.editing-text-input {
     display: flex;
     flex-direction: column;
-    background-image: url('../../images/paper.jpg' );
+    background-image: url("../../images/paper.jpg");
     background-size: no-repeat center center fixed;
     font-size: 20px;
     color: black;

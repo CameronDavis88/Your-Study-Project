@@ -6,7 +6,7 @@ import './Header.css';
 
 const Header = props => {
     const location = useLocation();
-    const atAbout = props.history.pathname=`/about`;
+    const atAbout = props.history.pathname = `/about`;
 
     const logout = () => {
         axios.get('/api/logout')
@@ -29,36 +29,36 @@ const Header = props => {
         props.history.push('/');
     };
 
-  return (
+    return (
         <header className='header-box'>
             <h1>Your Study</h1>
-            {!props.user.user_id 
-            ? (
-                <>
-                {location.pathname === atAbout 
+            {!props.user.user_id
                 ? (
-                        <h2 onClick={toHome} className='un-header-links' >Home</h2>
-                 ) : (
-                        <h2 onClick={toAbout} className='un-header-links' >About</h2>
-                    )}  
-                </>
-             ) : (
-                <>
-                {location.pathname === atAbout
-                 ? (
-                    <div className='header-links'> 
-                        <h2  onClick={toDesk}>Your Desk</h2>
-                        <h2 className='logout' onClick={logout}>Logout</h2>
-                    </div >
-                  ) : (
-                    <div className='header-links'> 
-                        <h2 onClick={toAbout}>About</h2>
-                        <h2 className='logout' onClick={logout}>Logout</h2>
-                    </div >
-                      )
-                    }
-                </>
-            )}
+                    <>
+                        {location.pathname === atAbout
+                            ? (
+                                <h2 onClick={toHome} className='un-header-links' >Home</h2>
+                            ) : (
+                                <h2 onClick={toAbout} className='un-header-links' >About</h2>
+                            )}
+                    </>
+                ) : (
+                    <>
+                        {location.pathname === atAbout
+                            ? (
+                                <div className='header-links'>
+                                    <h2 onClick={toDesk}>Your Desk</h2>
+                                    <h2 className='logout' onClick={logout}>Logout</h2>
+                                </div >
+                            ) : (
+                                <div className='header-links'>
+                                    <h2 onClick={toAbout}>About</h2>
+                                    <h2 className='logout' onClick={logout}>Logout</h2>
+                                </div >
+                            )
+                        }
+                    </>
+                )}
         </header>
     )
 };

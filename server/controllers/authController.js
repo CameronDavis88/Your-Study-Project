@@ -1,11 +1,11 @@
 const bcrypt = require('bcryptjs');
 
 module.exports = {
-    register: async (req,res) => {
-        const {username, email, password} = req.body;
+    register: async (req, res) => {
+        const { username, email, password } = req.body;
         const db = req.app.get('db');
         const [foundUser] = await db.user.get_user({ email })
-        if(foundUser){
+        if (foundUser) {
             return res.status(400).send('Email already in use');
         };
         let salt = bcrypt.genSaltSync(10);
@@ -19,11 +19,11 @@ module.exports = {
         const db = req.app.get('db');
 
         const [foundUser] = await db.user.get_user({ email })
-        if(!foundUser){
+        if (!foundUser) {
             return res.status(400).send('Email not found');
         };
         const authenticated = bcrypt.compareSync(password, foundUser.password)
-        if(!authenticated){
+        if (!authenticated) {
             return res.status(401).send('Password is incorrect');
         };
         delete foundUser.password;

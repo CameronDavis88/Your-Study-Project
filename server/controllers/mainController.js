@@ -9,15 +9,15 @@ module.exports = {
             .then(([user]) => res.status(200).send(user))
             .catch(err => res.status(500).send(err))
     },
-    updatePassword: (req,res) => {
+    updatePassword: (req, res) => {
         const { id } = req.params;
-        const {password} = req.body;
+        const { password } = req.body;
         const db = req.app.get('db');
         let salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(password, salt);
         db.user.edit_password({ id, hash })
-        .then(([user])=> res.status(200).send(user))
-        .catch(err => res.status(500).send(err))
+            .then(([user]) => res.status(200).send(user))
+            .catch(err => res.status(500).send(err))
     },
     updateEmail: (req, res) => {
         const { id } = req.params;
@@ -27,7 +27,7 @@ module.exports = {
             .then(([user]) => res.status(200).send(user))
             .catch(err => res.status(500).send(err))
     },
-    
+
     // Journal Controllers
     createEntry: async (req, res) => {
         const { id } = req.params;
@@ -37,13 +37,13 @@ module.exports = {
         res.status(200).send(journal);
     },
     getJournal: async (req, res) => {
-        const {id} = req.params;
+        const { id } = req.params;
         const db = req.app.get('db');
         const journal = await db.journal.get_journal({ id });
         res.status(200).send(journal);
     },
-    deleteEntry: async (req,res)=> {
-        const { id } = req.params ;
+    deleteEntry: async (req, res) => {
+        const { id } = req.params;
         const db = req.app.get('db');
         const journal = await db.journal.delete_entry({ id });
         res.status(200).send(journal);
@@ -70,8 +70,8 @@ module.exports = {
         const notes = await db.notes.get_notes({ id });
         res.status(200).send(notes);
     },
-    deleteNote: async (req,res)=> {
-        const { id } = req.params ;
+    deleteNote: async (req, res) => {
+        const { id } = req.params;
         const db = req.app.get('db');
         const notes = await db.notes.delete_note({ id });
         res.status(200).send(notes);
@@ -98,8 +98,8 @@ module.exports = {
         const quotes = await db.quotes.get_quotes({ id });
         res.status(200).send(quotes);
     },
-    deleteQuote: async (req,res)=> {
-        const { id } = req.params ;
+    deleteQuote: async (req, res) => {
+        const { id } = req.params;
         const db = req.app.get('db');
         const quotes = await db.quotes.delete_quote({ id });
         res.status(200).send(quotes);
