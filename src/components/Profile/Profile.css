@@ -11,6 +11,16 @@
   top: 10vh;
 }
 
+.authentication-info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 500;
+  flex-direction: column;
+  margin: 0px 0px 100px 0px;
+  padding: 20px 20px;
+}
+
 .profile-display {
   display: flex;
   align-items: center;
@@ -24,7 +34,6 @@ h3 {
 }
 
 .link-box {
- 
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -37,7 +46,6 @@ h3 {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100vw;
-  margin-top: 25px;
 }
 
 .notes {
@@ -116,6 +124,7 @@ h3 {
 
 .updating-box {
   margin-bottom: 30px;
+  box-sizing: border-box;
 }
 
 .finished {

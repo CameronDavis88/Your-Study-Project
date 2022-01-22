@@ -86,6 +86,7 @@ const Quotes = props => {
                         <div className='title-box' >
                             <h2 className='quotes-title'>Your Quotes</h2>
                         </div>
+                        <button className='add-view' onClick={() => props.history.push('/profile')}>Back to Desk</button>
                         <button className='add-view' onClick={addViewTrue}>Add New Quote</button>
                         {mappedQuotes}
                     </main>

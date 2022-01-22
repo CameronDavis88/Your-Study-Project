@@ -142,6 +142,7 @@ class Profile extends Component {
                             </>
                         ) : (
                         <div className='profile-display'>
+                            {/* <div className='welcome-box' ></div> */}
                             <div className='user-update'>
                                 <div className='title-box' >
                                     <h2 className='username'>Welcome to Your Desk</h2>

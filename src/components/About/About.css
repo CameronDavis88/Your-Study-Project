@@ -18,12 +18,18 @@
     bottom: 115px;
     font-size: 45px;
     color:white;
+    background-color: rgba(0,0,0,.3);
+    color: #fff;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 .about-box{
     display: flex;
+    box-sizing: border-box;
     justify-content: center;
     align-items: center;
+    width: 40%;
+    background-color: rgba(0,0,0,.3);
+    color: #fff;
 }
 .about-content{
     box-sizing: border-box;
@@ -32,10 +38,11 @@
     background-color:rgba(0, 0, 0, 0); 
     border-radius: 1px;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000; 
-    font-size: 20px;
+    font-size: 30px;
     color: white;
     word-wrap: normal;
     text-align: center;
+    
 } 
 
 @media(max-width: 775px){

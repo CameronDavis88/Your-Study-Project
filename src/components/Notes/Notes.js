@@ -81,7 +81,9 @@ const Notes = props => {
                     <main>
                         <div className='title-box' >
                             <h2 className='notes-title'>Your Notes</h2>
+                            
                         </div>
+                        <button className='add-view' onClick={() => props.history.push('/profile')}>Back to Desk</button>
                         <button className='add-view' onClick={addViewTrue}>Add New Note</button>
                         {mappedNotes}
                     </main>

@@ -60,21 +60,21 @@ class Login extends Component {
     render() {
         return (
             <div className='login-page'>
-                <section className='authentication-info'>
-                    <div enter-box>
-                    <h1 className='enter'>Enter Your Study</h1>
+                <section className='authentication-info1'>
+                    <div className='enter-box'>
+                        <h1 className='enter'>Enter Your Study</h1>
                     </div>
                     {this.state.registerView
                         ? (
-                        <>
-                            <h3 className='login-here-text' >Register Here</h3>
-                            <input className='input-class'
-                                value={this.state.username}
-                                name='username'
-                                placeholder='Username'
-                                onChange={e => this.handleInput(e)} />
-                        </>
-                         ) : 
+                            <>
+                                <h3 className='login-here-text' >Register Here</h3>
+                                <input className='input-class'
+                                    value={this.state.username}
+                                    name='username'
+                                    placeholder='Username'
+                                    onChange={e => this.handleInput(e)} />
+                            </>
+                        ) :
                         <h3 className='login-here-text'>Login Here</h3>}
                     <input className='input-class'
                         value={this.state.email}
@@ -89,22 +89,22 @@ class Login extends Component {
                         onChange={e => this.handleInput(e)} />
                     {this.state.registerView
                         ? (
-                        <>
-                            <input className='input-class'
-                                value={this.state.verPassword}
-                                name='verPassword'
-                                type='password'
-                                placeholder='Verify Password'
-                                onChange={e => this.handleInput(e)} />
-                            <button onClick={this.handleRegister}>Register</button>
-                            <p>Have an account? <span onClick={this.handleToggle}>Login here</span></p>
-                        </>
-                         ) : (
+                            <>
+                                <input className='input-class'
+                                    value={this.state.verPassword}
+                                    name='verPassword'
+                                    type='password'
+                                    placeholder='Verify Password'
+                                    onChange={e => this.handleInput(e)} />
+                                <button onClick={this.handleRegister}>Register</button>
+                                <p>Have an account? <span onClick={this.handleToggle}>Login here</span></p>
+                            </>
+                        ) : (
                             <>
                                 <button onClick={this.handleLogin}>Login</button>
                                 <p>Don't have an account? <span onClick={this.handleToggle}>Register here</span></p>
                             </>
-                         )
+                        )
                     }
                 </section>
             </div>

@@ -83,6 +83,7 @@ const Journal = props => {
                         <div className='title-box' >
                             <h2 className='journal-title'>Your Journal</h2>
                         </div>
+                        <button className='add-view' onClick={() => props.history.push('/profile')}>Back to Desk</button>
                         <button className='add-view' onClick={addViewTrue}>Add New Entry</button>
                         {mappedJournal}
                     </main>
