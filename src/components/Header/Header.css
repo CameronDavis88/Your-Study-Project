@@ -47,7 +47,7 @@ h1 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 20vw;
+  width: 10vw;
 }
 
 .un-header-links {
@@ -64,7 +64,6 @@ h1 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 15vw;
 }
 
 @media (max-width: 900px) {

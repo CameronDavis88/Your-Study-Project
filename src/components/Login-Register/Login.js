@@ -18,11 +18,11 @@ class Login extends Component {
     }
 
     handleInput = (event) => {
-        this.setState({ [event.target.name]: event.target.value })
+        this.setState({ [event.target.name]: event.target.value });
     };
 
     handleToggle = () => {
-        this.setState({ registerView: !this.state.registerView })
+        this.setState({ registerView: !this.state.registerView });
     };
 
     handleRegister = () => {
@@ -31,13 +31,14 @@ class Login extends Component {
         if (password && password === verPassword) {
             axios.post('/api/register', { username, email, password })
                 .then(res => {
-                    this.props.getUser(res.data)
-                    this.props.history.push('/profile')
+                    this.props.getUser(res.data);
+                    this.props.history.push('/profile');
+                    alert("Congratulations, you're all registered. Have a great time in Your Study.");
                 })
                 .catch(err => console.log(err));
         } else {
             alert("Passwords don't match");
-        };
+        }
     };
 
     handleLogin = () => {
@@ -45,8 +46,8 @@ class Login extends Component {
 
         axios.post('/api/login', { email, password })
             .then(res => {
-                this.props.getUser(res.data)
-                this.props.history.push('/profile')
+                this.props.getUser(res.data);
+                this.props.history.push('/profile');
             })
             .catch(err =>
                 alert('Username or Password not found, please try again'),

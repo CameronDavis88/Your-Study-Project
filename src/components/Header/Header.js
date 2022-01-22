@@ -37,13 +37,9 @@ const Header = props => {
                 <>
                 {location.pathname === atAbout 
                 ? (
-                    <div className='un-header-links'>
-                        <h2 onClick={toHome}>Home</h2>
-                    </div>
+                        <h2 onClick={toHome} className='un-header-links' >Home</h2>
                  ) : (
-                    <div className='un-header-links'>
-                        <h2 onClick={toAbout}>About</h2>
-                    </div> 
+                        <h2 onClick={toAbout} className='un-header-links' >About</h2>
                     )}  
                 </>
              ) : (
