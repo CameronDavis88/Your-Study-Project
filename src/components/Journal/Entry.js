@@ -25,9 +25,6 @@ const Entry = props => {
             .catch(err => console.log(err));
     };
 
-    useEffect(() => {
-    }, []);
-
     return (
         <div className='entry-container'>
             <textarea

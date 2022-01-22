@@ -37,7 +37,6 @@ const Journal = props => {
         };
     };
 
-
     useEffect(() => {
         getJournal();
         loggedinView();

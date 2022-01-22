@@ -24,9 +24,6 @@ const Quote = props => {
             .catch(err => console.log(err));
     };
 
-    useEffect(() => {
-    }, []);
-
     return (
         <div className='quote-container'>
             <textarea

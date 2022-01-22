@@ -25,9 +25,6 @@ const Note = props => {
             .catch(err => console.log(err));
     };
 
-    useEffect(() => {
-    }, []);
-
     return (
         <div className='note-container'>
             <textarea
