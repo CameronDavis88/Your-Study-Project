@@ -56,8 +56,7 @@ const Quotes = props => {
             getQuotes={getQuotes}
             className='quote'
         />
-    }
-    );
+    });
 
     return (
 

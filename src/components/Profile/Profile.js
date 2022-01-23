@@ -9,11 +9,11 @@ import './Profile.css';
 class Profile extends Component {
     constructor(props) {
         super(props);
+        const { password } = this.props.user;
 
-        const { username, email, password } = this.props.user
         this.state = {
-            username: username,
-            email: email,
+            username: '',
+            email: '',
             password: password,
             verPassword: '',
             editingView: false
@@ -82,18 +82,6 @@ class Profile extends Component {
             .catch(err => console.log(err));
     };
 
-    toJournal = () => {
-        this.props.history.push('/journal');
-    };
-
-    toNotes = () => {
-        this.props.history.push('/notes');
-    };
-
-    toQuotes = () => {
-        this.props.history.push('/quotes');
-    };
-
     render() {
         return (
             <div className='home-page'>
@@ -111,7 +99,6 @@ class Profile extends Component {
                                             name='username'
                                             placeholder='Username'
                                             onChange={e => this.handleInput(e)} />
-
                                         <button onClick={this.editUsername}>Update</button>
                                     </div>
                                     <div className='update-username-box'>
@@ -143,19 +130,18 @@ class Profile extends Component {
                             </>
                         ) : (
                             <div className='profile-display'>
-                                {/* <div className='welcome-box' ></div> */}
                                 <div className='user-update'>
                                     <div className='title-box' >
                                         <h2 className='username'>Welcome to Your Desk</h2>
                                     </div>
                                     <div className='title-box' >
-                                        <h3 onClick={this.editView} className='update'>update your information here</h3>
+                                        <h3 onClick={this.editView} className='update'>Update You Profile</h3>
                                     </div>
                                 </div>
                                 <div className='link-box'>
-                                    <h2 className='notes' onClick={this.toNotes} >Notes</h2>
-                                    <h2 className='journal' onClick={this.toJournal}>Journal</h2>
-                                    <h2 className='quotes' onClick={this.toQuotes}>Quotes</h2>
+                                    <h2 className='notes' onClick={() => this.props.history.push('/notes')} >Notes</h2>
+                                    <h2 className='journal' onClick={() => this.props.history.push('/journal')}>Journal</h2>
+                                    <h2 className='quotes' onClick={() => this.props.history.push('/quotes')}>Quotes</h2>
                                 </div>
                             </div>
                         )

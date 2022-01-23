@@ -49,11 +49,12 @@ class Login extends Component {
                 this.props.getUser(res.data);
                 this.props.history.push('/profile');
             })
-            .catch(err =>
-                alert('Username or Password not found, please try again'),
-                this.setState({ email: '' }),
-                this.setState({ password: '' })
-            );
+            .catch(err => {
+                alert('Username or Password not found, please try again');
+                this.setState({ email: '' });
+                this.setState({ password: '' });
+                console.log(err);
+            });
     };
 
 

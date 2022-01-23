@@ -17,18 +17,6 @@ const Header = props => {
             .catch(err => console.log(err))
     };
 
-    const toDesk = () => {
-        props.history.push('/profile');
-    };
-
-    const toAbout = () => {
-        props.history.push('/about');
-    };
-
-    const toHome = () => {
-        props.history.push('/');
-    };
-
     return (
         <header className='header-box'>
             <h1>Your Study</h1>
@@ -37,9 +25,9 @@ const Header = props => {
                     <>
                         {location.pathname === atAbout
                             ? (
-                                <h2 onClick={toHome} className='un-header-links' >Home</h2>
+                                <h2 onClick={() => props.history.push('/')} className='un-header-links' >Home</h2>
                             ) : (
-                                <h2 onClick={toAbout} className='un-header-links' >About</h2>
+                                <h2 onClick={() => props.history.push('/about')} className='un-header-links' >About</h2>
                             )}
                     </>
                 ) : (
@@ -47,12 +35,12 @@ const Header = props => {
                         {location.pathname === atAbout
                             ? (
                                 <div className='header-links'>
-                                    <h2 onClick={toDesk}>Your Desk</h2>
+                                    <h2 onClick={() => props.history.push('/profile')}>Your Desk</h2>
                                     <h2 className='logout' onClick={logout}>Logout</h2>
                                 </div >
                             ) : (
                                 <div className='header-links'>
-                                    <h2 onClick={toAbout}>About</h2>
+                                    <h2 onClick={() => props.history.push('/about')}>About</h2>
                                     <h2 className='logout' onClick={logout}>Logout</h2>
                                 </div >
                             )
