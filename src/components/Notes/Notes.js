@@ -32,7 +32,7 @@ const Notes = props => {
 
     const loggedinView = () => {
         if (!props.user.user_id) {
-            props.history.push('/')
+            props.history.push('/');
         };
     };
 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './Entry.css';
 
 const Entry = props => {
@@ -10,7 +10,7 @@ const Entry = props => {
         const id = props.entry.entry_id;
         axios.delete(`/api/entry/${id}`)
             .then(() => {
-                props.getJournal()
+                props.getJournal();
             })
             .catch(err => console.log(err));
     };
@@ -19,8 +19,8 @@ const Entry = props => {
         const id = props.entry.entry_id;
         axios.put(`/api/entry/${id}`, { entry })
             .then(() => {
-                alert('Entry Updated')
-                props.getJournal()
+                alert('Entry Updated');
+                props.getJournal();
             })
             .catch(err => console.log(err));
     };

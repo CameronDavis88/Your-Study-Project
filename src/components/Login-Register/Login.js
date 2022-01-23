@@ -15,7 +15,7 @@ class Login extends Component {
             verPassword: '',
             registerView: false
         }
-    }
+    };
 
     handleInput = (event) => {
         this.setState({ [event.target.name]: event.target.value });
@@ -103,7 +103,9 @@ class Login extends Component {
                         ) : (
                             <>
                                 <button onClick={this.handleLogin}>Login</button>
+                                <div className='register-here' >
                                 <p>Don't have an account? <span onClick={this.handleToggle}>Register here</span></p>
+                                </div>
                             </>
                         )
                     }

@@ -95,8 +95,12 @@ button {
         font-size: 50px;
         margin-bottom: 20px;
     }
+    .register-here{
+        padding-left: 50px;
+        width: 75%;
+    }
     p {
-        font-size: 25px;
+        font-size: 30px;
         margin-top: 125px;
     }
     button {
@@ -121,7 +125,7 @@ button {
         margin-bottom: 20px;
     }
     p {
-        font-size: 25px;
+        font-size: 30px;
         margin-top: 60px;
     }
     button {

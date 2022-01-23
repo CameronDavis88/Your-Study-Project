@@ -15,7 +15,7 @@ const Journal = props => {
         const id = props.user.user_id;
         axios.get(`/api/journal/${id}`)
             .then(res => {
-                setJournal(res.data)
+                setJournal(res.data);
             })
             .catch(err => console.log(err));
     };

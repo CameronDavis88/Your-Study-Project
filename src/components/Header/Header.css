@@ -68,7 +68,7 @@ h1 {
 
 @media (max-width: 900px) {
   h2 {
-    font-size: 20px;
+    font-size: 30px;
   }
 
   h1 {
@@ -76,11 +76,13 @@ h1 {
   }
 
   .un-header-links {
-    width: 50vw;
+    width: 10vw;
+    margin-right: 30px;
   }
 
   .header-links {
-    width: 50vw;
+    width: 25vw;
+    margin-right: 20px;
   }
 }
 @media (max-width: 775px) {
@@ -96,12 +98,14 @@ h1 {
 
   .un-header-links {
     margin-right: 0px;
-    width: 25vw;
+    width: 20vw;
   }
 
   .header-links {
-    width: 50vw;
+    width: 45vw;
+    margin-right: 25px;
   }
+
 }
 @media (max-width: 450px) {
   .header-box {
@@ -109,7 +113,7 @@ h1 {
   }
 
   h2 {
-    font-size: 17px;
+    font-size: 25px;
   }
 
   h1 {
@@ -118,14 +122,14 @@ h1 {
     width: 15vw;
   }
 
-  .un-header-links {
+  /* .un-header-links {
     margin-right: 0px;
     width: 25vw;
   }
 
   .header-links {
     width: 50vw;
-  }
+  } */
 }
 @media (max-width: 400px) {
   .header-box {
@@ -133,7 +137,7 @@ h1 {
   }
 
   h2 {
-    font-size: 17px;
+    font-size: 25px;
   }
 
   h1 {
@@ -142,12 +146,12 @@ h1 {
     width: 15vw;
   }
 
-  .un-header-links {
+  /* .un-header-links {
     margin-right: 0px;
     width: 30vw;
   }
 
   .header-links {
     width: 50vw;
-  }
-} /*# sourceMappingURL=Header.css.map */
+  } */
+} 

@@ -149,7 +149,7 @@ class Profile extends Component {
                 </section>
             </div>
         )
-    }
+    };
 };
 
 const mapStateToProps = reduxState => reduxState;

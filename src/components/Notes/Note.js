@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './Note.css';
 
 const Note = props => {
@@ -39,7 +39,7 @@ const Note = props => {
             </div>
         </div>
     )
-}
+};
 
 export default Note;
 
