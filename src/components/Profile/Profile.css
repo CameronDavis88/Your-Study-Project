@@ -148,6 +148,7 @@ button {
   .link-box {
     width: 100vw;
     margin-top: 40px;
+    margin-bottom: 50px;
   }
 
   .notes {
@@ -188,7 +189,7 @@ button {
   }
 
   .updating-box {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
 
   .finished {
@@ -196,10 +197,12 @@ button {
     font-size: 35px;
   }
 }
+
+
 @media (max-width: 450px) {
   .link-box {
     margin-top: 20px;
-    margin-bottom: 120px;
+    margin-bottom: 100px;
   }
 
   .notes {
@@ -226,7 +229,7 @@ button {
   .username {
     margin-top: 115px;
     bottom: 115px;
-    font-size: 35px;
+    font-size: 30px;
   }
 
   .update-title {
@@ -241,7 +244,7 @@ button {
   }
 
   .updating-box {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
 
   .finished {
