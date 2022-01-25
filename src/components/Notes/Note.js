@@ -3,9 +3,8 @@ import { useState } from 'react';
 import './Note.css';
 
 const Note = props => {
-
     const [note, setNote] = useState(props.note.note);
-
+    //Functions below delete or update entry in database and updates the view to display the page according tot he new data
     const deleteNote = () => {
         const id = props.note.note_id;
         axios.delete(`/api/note/${id}`)
@@ -14,7 +13,6 @@ const Note = props => {
             })
             .catch(err => console.log(err));
     };
-
     const updateNote = () => {
         const id = props.note.note_id;
         axios.put(`/api/note/${id}`, { note })
@@ -26,6 +24,7 @@ const Note = props => {
     };
 
     return (
+        //Displays the entry and changes the value as user types
         <div className='note-container'>
             <textarea
                 rows='5'

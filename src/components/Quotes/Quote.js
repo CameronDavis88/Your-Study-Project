@@ -4,7 +4,7 @@ import './Quote.css';
 
 const Quote = props => {
     const [quote, setQuote] = useState(props.quote.quote);
-
+    //Functions below delete or update entry in database and updates the view to display the page according tot he new data
     const deleteQuote = () => {
         const id = props.quote.quote_id;
         axios.delete(`/api/quote/${id}`)
@@ -13,7 +13,6 @@ const Quote = props => {
             })
             .catch(err => console.log(err));
     };
-
     const updateQuote = () => {
         const id = props.quote.quote_id;
         axios.put(`/api/quote/${id}`, { quote })
@@ -25,6 +24,7 @@ const Quote = props => {
     };
 
     return (
+        //Displays the entry and changes the value as user types
         <div className='quote-container'>
             <textarea
                 rows='5'

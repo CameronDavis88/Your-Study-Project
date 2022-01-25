@@ -6,10 +6,11 @@ import Quote from './Quote';
 import './Quotes.css';
 
 const Quotes = props => {
+    //React hooks
     const [quotes, setQuotes] = useState([]);
     const [quote, setQuote] = useState('');
     const [addView, setAddView] = useState(false);
-
+    //Fetches the user's quotes stored in database
     const getQuotes = () => {
         const id = props.user.user_id;
         axios.get(`/api/quotes/${id}`)
@@ -18,7 +19,7 @@ const Quotes = props => {
             })
             .catch(err => console.log(err));
     };
-
+    //Creates an entry
     const createQuote = () => {
         const id = props.user.user_id;
         axios.post(`/api/quote/${id}`, { quote })
@@ -29,26 +30,23 @@ const Quotes = props => {
             })
             .catch(err => console.log(err));
     };
-
-    const loggedinView = () => {
+    //Upon mounting if the user is not signed in they are sent back to login-register view 
+    // or if if the user is signed in their information is fetched 
+    useEffect(() => {
         if (!props.user.user_id) {
             props.history.push('/');
         };
-    };
-
-    useEffect(() => {
-        loggedinView();
         getQuotes();
     }, []);
-
+    //Functions changing addView variable in hook which is used as the condition to conditionally
+    // render the view depending on if the user is creating an entry or viewing/editing old entries
     const addViewTrue = () => {
         setAddView(true);
     };
-
     const addViewFalse = () => {
         setAddView(false);
     };
-
+    //Mapping through the array of the user's individual entries and their individual data
     const mappedQuotes = quotes.map(quote => {
         return <Quote
             key={quote.quote_id}
@@ -62,6 +60,7 @@ const Quotes = props => {
 
         <div className='quotes-page'>
             <section className='content'>
+            {/* Conditionally render the view depending on if the user is creating an entry or viewing/editing old entries */}
                 {addView
                     ? (
                         <>

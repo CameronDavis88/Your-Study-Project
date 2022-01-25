@@ -7,7 +7,7 @@ import './Header.css';
 const Header = props => {
     const location = useLocation();
     const atAbout = props.history.pathname = `/about`;
-
+    //Loges the user out and clears and sends them to the homepage view.
     const logout = () => {
         axios.get('/api/logout')
             .then(() => {
@@ -20,6 +20,8 @@ const Header = props => {
     return (
         <header className='header-box'>
             <h1>Your Study</h1>
+            {/* Conditionally rendering the Header so to only display the Logout button if the user is signed in and so 
+            as not not display buttons to the current view */}
             {!props.user.user_id
                 ? (
                     <>
@@ -50,7 +52,6 @@ const Header = props => {
         </header>
     )
 };
-
 const mapStateToProps = reduxState => reduxState;
 
 export default withRouter(connect(mapStateToProps, { clearUser })(Header));

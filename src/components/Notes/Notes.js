@@ -6,10 +6,11 @@ import { getUser } from '../../ducks/reducer';
 import './Notes.css';
 
 const Notes = props => {
+    //React hooks
     const [notes, setNotes] = useState([]);
     const [note, setNote] = useState('');
     const [addView, setAddView] = useState(false);
-
+    //Fetches the user's notes stored in database
     const getNotes = () => {
         const id = props.user.user_id;
         axios.get(`/api/notes/${id}`)
@@ -18,7 +19,7 @@ const Notes = props => {
             })
             .catch(err => console.log(err));
     };
-
+    //Creates an entry
     const createNote = () => {
         const id = props.user.user_id;
         axios.post(`/api/note/${id}`, { note })
@@ -29,26 +30,23 @@ const Notes = props => {
             })
             .catch(err => console.log(err));
     };
-
-    const loggedinView = () => {
+    //Upon mounting if the user is not signed in they are sent back to login-register view 
+    // or if if the user is signed in their information is fetched 
+    useEffect(() => {
         if (!props.user.user_id) {
             props.history.push('/');
         };
-    };
-
-    useEffect(() => {
-        loggedinView();
         getNotes();
     }, []);
-
+    //Functions changing addView variable in hook which is used as the condition to conditionally
+    // render the view depending on if the user is creating an entry or viewing/editing old entries
     const addViewTrue = () => {
         setAddView(true);
     };
-
     const addViewFalse = () => {
         setAddView(false);
     };
-
+    //Mapping through the array of the user's individual entries and their individual data
     const mappedNotes = notes.map(note => {
         return <Note
             key={note.note_id}
@@ -61,6 +59,7 @@ const Notes = props => {
     return (
         <div className='notes-page'>
             <section className='content'>
+                 {/* Conditionally render the view depending on if the user is creating an entry or viewing/editing old entries */}
                 {addView
                     ? (
                         <div className='note-input-box'>

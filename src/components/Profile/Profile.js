@@ -20,22 +20,18 @@ class Profile extends Component {
 
         };
     };
-
-    loggedinView = () => {
+    //Upon mounting if the user is not signed in they are sent back to login-register view 
+    //or if if the user is signed in their information is fetched
+    componentDidMount() {
         if (!this.props.user.user_id) {
             this.props.history.push('/');
         };
-    };
-
-    componentDidMount() {
-        this.loggedinView();
         getUser();
     };
-
+    //These next functions set the view variable in state which is used to conditionally render the view
     editView = () => {
         this.setState({ editingView: true });
     };
-
     homeView = () => {
         this.setState({ editingView: false });
     };
@@ -43,26 +39,23 @@ class Profile extends Component {
     handleInput = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     };
-
+    //The update the username to the value in state and alerts the user that it was successfully updated
     editUsername = () => {
         const id = this.props.user.user_id;
         const username = this.state.username;
         axios.put(`/api/user/${id}`, { username })
             .then(res => {
-                this.setState({ username: res.data.username });
                 alert('Username Updated');
             })
             .catch(err => console.log(err));
     };
-
+    //The update the user's password to the value in state and alerts the user that it was successfully updated
     editPassword = () => {
         const id = this.props.user.user_id;
         const { password, verPassword } = this.state;
-
         if (password && password === verPassword) {
             axios.put(`/api/user_password/${id}`, { password })
                 .then(res => {
-                    this.setState({ password: res.data.password });
                     alert('Password Updated');
                 })
                 .catch(err => console.log(err));
@@ -70,13 +63,12 @@ class Profile extends Component {
             alert("Passwords don't match");
         };
     };
-
+    //The update the user's email to the value in state and alerts the user that it was successfully updated
     editEmail = () => {
         const id = this.props.user.user_id;
         const email = this.state.email;
         axios.put(`/api/user_email/${id}`, { email })
             .then(res => {
-                this.setState({ email: res.data.email });
                 alert('Email Updated');
             })
             .catch(err => console.log(err));
@@ -86,12 +78,13 @@ class Profile extends Component {
         return (
             <div className='home-page'>
                 <section className='authentication-info'>
+                    {/* Conditionally renders the page for if the user want to update their information or use the desk */}
                     {this.state.editingView
                         ? (
                             <>
+                            {/* Updating user info section */}
                                 <h3 className='update-title'>Update Your Info</h3>
                                 <section className='updating-box'>
-
                                     <div className='update-username-box'>
                                         <input
                                             className='inputs'
@@ -129,6 +122,7 @@ class Profile extends Component {
                                 <button onClick={this.homeView} className='finished'>Finished Updating</button>
                             </>
                         ) : (
+                            // Utilizing desk section
                             <div className='profile-display'>
                                 <div className='user-update'>
                                     <div className='title-box' >
